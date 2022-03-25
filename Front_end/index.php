@@ -4,11 +4,14 @@
         <title> Mon profil iMangerMieux </title>
     </head>
     <body>
-    Bonjour ! Nous sommes le :
+    <p>Bonjour ! Nous sommes le :
         <?php
         // Affichage de la date
-        echo date("d/m/Y");?>
-
+        echo date("d/m/Y");?> </p>
+    <p> Il est : 
+    <?php
+        // Affichage de l'heure'
+        echo date("H:i");?> </p>
     </body>
 
 </html>
