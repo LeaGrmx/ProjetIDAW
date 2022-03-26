@@ -5,7 +5,7 @@ $username = 'root';
 $password = 'root';
 
 //On établit la connexion
-$mysqli = mysqli_connect($servername, $username, $password, 'IDAW');
+$mysqli = mysqli_connect($servername, $username, $password, 'PROJET_IDAW');
 
 //On vérifie la connexion
 if(!$mysqli){

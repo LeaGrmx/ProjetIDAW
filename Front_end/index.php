@@ -10,11 +10,11 @@
         echo date("d/m/Y");?> </p>
     <p> Il est : 
     <?php
-        // Affichage de l'heure'
+        // Affichage de l'heure
         echo date("H:i");
     ?> </p>
 
-    <form id="login_form" action="accueil.php" method="POST">
+    <form id="login_form" action="../Back_end/connected.php" method="POST">
         <table> 
             <tr>
                 <th>Login :</th>
