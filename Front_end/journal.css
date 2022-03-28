@@ -1,0 +1,15 @@
+table{
+    margin : 0 auto;
+}
+thead{
+    border : solid;
+    font-size : 20px;
+}
+tbody{
+    border : 2px solid rgba(0, 0, 0, 0.027);
+    font-size:18px;
+    background-color: rgba(218, 112, 214, 0.685);
+}
+td{
+    text-align:center;
+}

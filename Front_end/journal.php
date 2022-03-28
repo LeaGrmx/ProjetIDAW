@@ -3,10 +3,11 @@
     <head>
         <title>Journal</title>
         <meta charset="utf-8">
-        <link rel="stylesheet_journal" href="cv.css">
+        <link rel="stylesheet" href="journal.css">
     </head>
 <body>
     <h1>REPAS</h1>
+    <p> Vous pouvez saisir les détails de votre repas ici, ils seront ajoutés à vos précédentes sélections. <br> Vous pouvez d'ailleurs les visualiser ci-dessous.</p>
     <form method="post" id="addNewRepas" action="" onsubmit="onFormSubmit();">
         <div class="form-group row">
             <label for="inputEntree1" class="nom_entree1">Entrée 1</label>
@@ -55,7 +56,7 @@
             </div>
        </div>
     </form>
-
+<br><br><br><br><br><br><br><br><br><br>
     <table id="table_repas">
         <thead>
             <tr>
