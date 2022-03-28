@@ -11,6 +11,7 @@
     <p> Il est : 
     <?php
         // Affichage de l'heure
+        date_default_timezone_set('Europe/Amsterdam');
         echo date("H:i");
     ?> </p>
 
