@@ -2,6 +2,8 @@
 <html>
     <head>
         <title> Mon profil iMangerMieux </title>
+        <link rel="stylesheet" href="sb-admin-2.css" type="text/css"
+                media="screen" title="default" charset="utf-8"/>
     </head>
     <body>
     <p>Bonjour ! Nous sommes le :
@@ -34,7 +36,7 @@
     </form>
 
     <h4> Si vous voulez nous rejoindre, vous pouvez créer votre compte : </h4>
-        <a href="newprofile.php">Créer mon compte</a>
+        <a href="newprofil.php">Créer mon compte</a>
 
     </body>
 

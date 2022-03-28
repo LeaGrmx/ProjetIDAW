@@ -14,6 +14,7 @@
             <label for="inputRepas" class="nom_repas" id="inputRepas">Repas de la journée</label>
             <div class="type_repas">
                 <select id="repas" required>
+                    <option value="Default">Choisissez une valeur</option>
                     <option value="Petit-déjeuner">Petit-déjeuner</option>
                     <option value="Déjeuner">Déjeuner</option>
                     <option value="Goûter">Goûter</option>

@@ -1,4 +1,10 @@
-<form id="new_form" action="../Back_end/profile.php" method="POST">
+<?php
+    require_once('template_header.php');
+?>
+
+<h4> Créer un compte </h4>
+<p> Pour créer un compte, veuillez remplir les champs suivants : </p>
+<form id="new_form" action="../Back_end/profil.php" method="POST">
         <table> 
             <tr>
                 <th>Login :</th>
@@ -40,3 +46,7 @@
             </tr>
         </table>
     </form>
+
+<?php
+require_once('template_footer.php');
+?>
