@@ -29,7 +29,7 @@
             </tr>
             <tr>
                 <th>Sexe :</th>
-                <td><select name="select">
+                <td><select name="sexe">
                     <option value="M">M</option>
                     <option value="F">F</option>
                 </select></td>
