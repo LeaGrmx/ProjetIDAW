@@ -1,22 +1,41 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Journal</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="journal.css">
-    </head>
+<?php
+    require_once('template_header.php');
+?>
+
 <body>
     <h1>REPAS</h1>
     <p> Vous pouvez saisir les détails de votre repas ici, ils seront ajoutés à vos précédentes sélections. <br> Vous pouvez d'ailleurs les visualiser ci-dessous.</p>
     <form method="post" id="addNewRepas" action="" onsubmit="onFormSubmit();">
         <div class="form-group row">
+        <label for="inputRepas" class="nom_repas" id="inputRepas">Repas de la journée</label>
+            <div class="type_repas">
+                <select name="repas">
+                    <option value="Petit-déjeuner">Petit-déjeuner</option>
+                    <option value="Déjeuner">Déjeuner</option>
+                    <option value="Goûter">Goûter</option>
+                    <option value="Dîner">Dîner</option>
+                </select>
+            </div>
+            <label for="inputDate" class="date"> Date </label>
+            <div class="date_repas">
+                <input type="date" class="form-control" id="inputDate">
+            </div>
+            <label for="inputHeure" class="heure"> Heure </label>
+            <div class="heure_repas">
+                <input type="time" class="form-control">
+            </div>
+        </div>
+        <br>
+        <div class="form-group row">
             <label for="inputEntree1" class="nom_entree1">Entrée 1</label>
             <div class="nom-entree1">
                 <input type="text" class="form-control" id="inputEntree1" name="nomEntree1">
+                <input type="text" placeholder="100g">
             </div>
             <label for="inputEntree2" class="nom_entree2">Entrée 2</label>
             <div class="nom-entree2">
                 <input type="text" class="form-control" id="inputEntree2" name="nomEntree2">
+                <input type="text" placeholder="100g">
             </div>
         </div>
         <br>
@@ -24,14 +43,17 @@
             <label for="inputPlat" class="nom_plat">Plat de résistance</label>
             <div class="nom-plat2">
                 <input type="text" class="form-control" id="inputPlat" name="nomPlat">
+                <input type="text" placeholder="100g">
             </div>
             <label for="inputAcc1" class="nom_acc1">Accompagnement 1</label>
             <div class="nom-acc11">
                 <input type="text" class="form-control" id="inputAcc1" name="nomAcc1">
+                <input type="text" placeholder="100g">
             </div>
             <label for="inputAcc2" class="nom_acc2">Accompagnement 2</label>
             <div class="nom-acc21">
                 <input type="text" class="form-control" id="inputAcc2" name="nomAcc2">
+                <input type="text" placeholder="100g">
             </div>
         </div>
         <br>       
@@ -39,14 +61,17 @@
             <label for="inputLaitage" class="nom_lait">Laitage</label>
             <div class="nom-lait">
                 <input type="text" class="form-control" id="inputLait" name="nomLait">
+                <input type="text" placeholder="100g">
             </div>
             <label for="inputFruit" class="nom_fruit">Fruit 1</label>
             <div class="nom-fruit1">
                 <input type="text" class="form-control" id="inputFruit1" name="nomFruit1">
+                <input type="text" placeholder="100g">
             </div>
             <label for="inputFruit" class="nom_fruit">Fruit 2</label>
             <div class="nom-fruit2">
                 <input type="text" class="form-control" id="inputFruit2" name="nomFruit2">
+                <input type="text" placeholder="100g">
             </div>
         </div>
         <div class="form-group row">
@@ -77,6 +102,10 @@
     <script>
         function onFormSubmit() {
             event.preventDefault();
+            let login = $_SESSION['login'];
+            console.log(login);
+            let date = $("#inputDate").val();
+            let type_repas = $("#inputRepas").val();
             let entree1 = $("#inputEntree1").val();
             let entree2 = $("#inputEntree2").val();
             let plat = $("#inputPlat").val();
@@ -85,14 +114,14 @@
             let laitage = $("#inputLait").val();
             let fruit1 = $("#inputFruit1").val();
             let fruit2 = $("#inputFruit2").val();
-            let repas = {entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2};
+            let repas = {date, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2};
             $.post({
                 url : 'aliments.php',
                 dataType : 'json',
-                data : personne
+                data : repas
             })
             .done(function(){
-                $('#AlimentsTableBody').append(`<tr><td>${entree1}</td>
+                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${repas}</td><td>${entree1}</td>
                 <td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td>
                 <td>${accompagnement2}</td><td>${laitage}</td>
                 <td>${fruit1}</td><td>${fruit2}</td>
@@ -110,16 +139,21 @@
 
         function suppr(btn) {
             var row = btn.parentNode.parentNode;
-            let nom = row.children[0].innerHTML;
-            let prenom = row.children[1].innerHTML;
-            let date = row.children[2].innerHTML;
-            let cours = row.children[3].innerHTML;
-            let remarques = row.children[4].innerHTML;
-            let personne = {nom, prenom, date, cours, remarques}; 
+            let date = row.children[0].innerHTML;
+            let repas = row.children[1].innerHTML;
+            let entree1 = row.children[2].innerHTML;
+            let entree2 = row.children[3].innerHTML;
+            let plat = row.children[4].innerHTML;
+            let acc1 = row.children[5].innerHTML;
+            let acc2 = row.children[6].innerHTML;
+            let laitage = row.children[7].innerHTML;
+            let fruit1 = row.children[8].innerHTML;
+            let fruit2 = row.children[9].innerHTML;
+            let repas = {date,repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; 
             $.post({
-                url : "deleteRepas.php",
+                url : "../Back_end/journal.php",
                 dataType: "json",
-                data : personne,
+                data : repas,
             })
             .done(function(data){
                 row.parentNode.removeChild(row);
@@ -133,35 +167,43 @@
             var row = btn.parentNode.parentNode;
             var repas = row.childNodes;
 
-            var entree1 = repas[0];
+            var date = repas[0];
+            var newdate = date.innerHTML;
+            date.innerHTML = "<input type='text' value='"+newdate+"'>";
+
+            var type_repas = repas[1];
+            var newtype_repas = type_repas.innerHTML;
+            type_repas.innerHTML = "<input type='text' value='"+newtype_repas+"'>";
+
+            var entree1 = repas[2];
             var newentree1 = entree1.innerHTML;
             entree1.innerHTML = "<input type='text' value='"+newentree1+"'>";
 
-            var entree2 = repas[1];
+            var entree2 = repas[3];
             var newentree2 = entree2.innerHTML;
             entree2.innerHTML = "<input type='text' value='"+newentree2+"'>";
 
-            var plat = repas[2];
+            var plat = repas[4];
             var newplat = plat.innerHTML;
             plat.innerHTML = "<input type='text' value='"+newplat+"'>";
 
-            var acc1 = repas[3];
+            var acc1 = repas[5];
             var newacc1 = acc1.innerHTML;
             acc1.innerHTML = "<input type='text' value='"+newacc1+"'>";
 
-            var acc2 = repas[4];
+            var acc2 = repas[6];
             var newacc2 = acc2.innerHTML;
             acc2.innerHTML = "<input type='text' value='"+newacc2+"'>";
 
-            var laitage = repas[5];
+            var laitage = repas[7];
             var newlaitage = laitage.innerHTML;
             laitage.innerHTML = "<input type='text' value='"+newlaitage+"'>";
 
-            var fruit1 = repas[6];
+            var fruit1 = repas[8];
             var newfruit1 = fruit1.innerHTML;
             fruit1.innerHTML = "<input type='text' value='"+newfruit1+"'>";
 
-            var fruit2 = repas[7];
+            var fruit2 = repas[9];
             var newfruit2 = fruit2.innerHTML;
             fruit2.innerHTML = "<input type='text' value='"+newfruit2+"'>";
         }
@@ -169,13 +211,15 @@
         function sauv(btn) {
             var row = btn.parentNode.parentNode;
             var repas = row.childNodes;
-            for(k=0;k<=7;k++) {
+            for(k=0;k<=9;k++) {
                 repas[k].innerHTML = repas[k].childNodes[0].value;
             }
         }
     </script>
 </body>
-</html>        
+<?php
+    require_once('template_footer.php');
+?>    
 
 
 
