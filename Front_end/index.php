@@ -15,6 +15,7 @@
         echo date("H:i");
     ?> </p>
 
+    <h4> Vous avez déjà un compte iMangerMieux, connectez-vous ici : </h4>
     <form id="login_form" action="../Back_end/connected.php" method="POST">
         <table> 
             <tr>
@@ -31,6 +32,9 @@
             </tr>
         </table>
     </form>
+
+    <h4> Si vous voulez nous rejoindre, vous pouvez créer votre compte : </h4>
+        <a href="newprofile.php">Créer mon compte</a>
 
     </body>
 
