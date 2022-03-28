@@ -4,6 +4,7 @@
         <title>Mon profil iMangerMieux</title>
             <link rel="stylesheet" href="" type="text/css"
                 media="screen" title="default" charset="utf-8"/>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     </head>
 <?php
     session_start();

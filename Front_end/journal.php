@@ -1,5 +1,6 @@
 <?php
     require_once('template_header.php');
+    $currentlogin = $_SESSION['login'];
 ?>
 
 <body>
@@ -7,9 +8,12 @@
     <p> Vous pouvez saisir les détails de votre repas ici, ils seront ajoutés à vos précédentes sélections. <br> Vous pouvez d'ailleurs les visualiser ci-dessous.</p>
     <form method="post" id="addNewRepas" action="" onsubmit="onFormSubmit();">
         <div class="form-group row">
-        <label for="inputRepas" class="nom_repas" id="inputRepas">Repas de la journée</label>
+            <!-- <label for="inputLogin" class="login" id="inputLogin">Utilisateur</label>
+            <div class="login">
+                <input type="text" class="form-control" id="inputEntree1" name="nomEntree1"> -->
+            <label for="inputRepas" class="nom_repas" id="inputRepas">Repas de la journée</label>
             <div class="type_repas">
-                <select name="repas">
+                <select id="repas" required>
                     <option value="Petit-déjeuner">Petit-déjeuner</option>
                     <option value="Déjeuner">Déjeuner</option>
                     <option value="Goûter">Goûter</option>
@@ -18,11 +22,11 @@
             </div>
             <label for="inputDate" class="date"> Date </label>
             <div class="date_repas">
-                <input type="date" class="form-control" id="inputDate">
+                <input type="date" class="form-control" id="inputDate" required>
             </div>
             <label for="inputHeure" class="heure"> Heure </label>
             <div class="heure_repas">
-                <input type="time" class="form-control">
+                <input type="time" class="form-control" id="inputHeure">
             </div>
         </div>
         <br>
@@ -30,12 +34,12 @@
             <label for="inputEntree1" class="nom_entree1">Entrée 1</label>
             <div class="nom-entree1">
                 <input type="text" class="form-control" id="inputEntree1" name="nomEntree1">
-                <input type="text" placeholder="100g">
+                <input type="text" id="qt1" placeholder="100g">
             </div>
             <label for="inputEntree2" class="nom_entree2">Entrée 2</label>
             <div class="nom-entree2">
                 <input type="text" class="form-control" id="inputEntree2" name="nomEntree2">
-                <input type="text" placeholder="100g">
+                <input type="text" id="qt2" placeholder="100g">
             </div>
         </div>
         <br>
@@ -43,17 +47,17 @@
             <label for="inputPlat" class="nom_plat">Plat de résistance</label>
             <div class="nom-plat2">
                 <input type="text" class="form-control" id="inputPlat" name="nomPlat">
-                <input type="text" placeholder="100g">
+                <input type="text" id="qt3" placeholder="100g">
             </div>
             <label for="inputAcc1" class="nom_acc1">Accompagnement 1</label>
             <div class="nom-acc11">
                 <input type="text" class="form-control" id="inputAcc1" name="nomAcc1">
-                <input type="text" placeholder="100g">
+                <input type="text" id="qt4" placeholder="100g">
             </div>
             <label for="inputAcc2" class="nom_acc2">Accompagnement 2</label>
             <div class="nom-acc21">
                 <input type="text" class="form-control" id="inputAcc2" name="nomAcc2">
-                <input type="text" placeholder="100g">
+                <input type="text" id="qt5" placeholder="100g">
             </div>
         </div>
         <br>       
@@ -61,17 +65,17 @@
             <label for="inputLaitage" class="nom_lait">Laitage</label>
             <div class="nom-lait">
                 <input type="text" class="form-control" id="inputLait" name="nomLait">
-                <input type="text" placeholder="100g">
+                <input type="text" id="qt6" placeholder="100g">
             </div>
             <label for="inputFruit" class="nom_fruit">Fruit 1</label>
             <div class="nom-fruit1">
                 <input type="text" class="form-control" id="inputFruit1" name="nomFruit1">
-                <input type="text" placeholder="100g">
+                <input type="text" id="qt7" placeholder="100g">
             </div>
             <label for="inputFruit" class="nom_fruit">Fruit 2</label>
             <div class="nom-fruit2">
                 <input type="text" class="form-control" id="inputFruit2" name="nomFruit2">
-                <input type="text" placeholder="100g">
+                <input type="text" id="qt8" placeholder="100g">
             </div>
         </div>
         <div class="form-group row">
@@ -85,6 +89,8 @@
     <table id="table_repas">
         <thead>
             <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Repas</th>
                 <th scope="col">Entrée 1</th>
                 <th scope="col">Entrée 2</th>
                 <th scope="col">Plat de résistance</th>
@@ -102,26 +108,36 @@
     <script>
         function onFormSubmit() {
             event.preventDefault();
-            let login = $_SESSION['login'];
-            console.log(login);
             let date = $("#inputDate").val();
-            let type_repas = $("#inputRepas").val();
+            let heure = $("#inputHeure").val();
+            //let type_repas = $("#inputRepas").val();
+            let selectElmt = document.getElementById("repas");
+            let type_repas = selectElmt.options[selectElmt.selectedIndex].text;
+            console.log(type_repas);
             let entree1 = $("#inputEntree1").val();
+            let qt1 = $("#qt1").val();
             let entree2 = $("#inputEntree2").val();
+            let qt2 = $("#qt2").val();
             let plat = $("#inputPlat").val();
+            let qt3 = $("#qt3").val();
             let accompagnement1 = $("#inputAcc1").val();
+            let qt4 = $("#qt4").val();
             let accompagnement2 = $("#inputAcc2").val();
+            let qt5 = $("#qt5").val();
             let laitage = $("#inputLait").val();
+            let qt6 = $("#qt6").val();
             let fruit1 = $("#inputFruit1").val();
+            let qt7 = $("#qt7").val();
             let fruit2 = $("#inputFruit2").val();
-            let repas = {date, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2};
+            let qt8 = $("#qt8").val();
+            let repas = {date, heure, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2, qt1, qt2, qt3, qt4, qt5, qt6, qt7, qt8};
             $.post({
-                url : 'aliments.php',
+                url : '../Back_end/journal.php',
                 dataType : 'json',
                 data : repas
             })
             .done(function(){
-                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${repas}</td><td>${entree1}</td>
+                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${type_repas}</td><td>${entree1}</td>
                 <td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td>
                 <td>${accompagnement2}</td><td>${laitage}</td>
                 <td>${fruit1}</td><td>${fruit2}</td>
@@ -130,17 +146,27 @@
                         <input type="button" value="Supprimer" onclick="suppr(this)">
                         <input type="button" value="Sauvegarder" onclick="sauv(this)">
                     </td>
-                </tr>`);)
+                </tr>`);
             })
             .fail(function(){
                 console.log('Erreur');
+                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${type_repas}</td><td>${entree1}</td>
+                <td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td>
+                <td>${accompagnement2}</td><td>${laitage}</td>
+                <td>${fruit1}</td><td>${fruit2}</td>
+                    <td>
+                        <input type="button" value="Modifier" onclick="modif(this)">
+                        <input type="button" value="Supprimer" onclick="suppr(this)">
+                        <input type="button" value="Sauvegarder" onclick="sauv(this)">
+                    </td>
+                </tr>`);
             })
         }
 
         function suppr(btn) {
             var row = btn.parentNode.parentNode;
             let date = row.children[0].innerHTML;
-            let repas = row.children[1].innerHTML;
+            let type_repas = row.children[1].innerHTML;
             let entree1 = row.children[2].innerHTML;
             let entree2 = row.children[3].innerHTML;
             let plat = row.children[4].innerHTML;
@@ -149,7 +175,7 @@
             let laitage = row.children[7].innerHTML;
             let fruit1 = row.children[8].innerHTML;
             let fruit2 = row.children[9].innerHTML;
-            let repas = {date,repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; 
+            let repas = {date,type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; 
             $.post({
                 url : "../Back_end/journal.php",
                 dataType: "json",
