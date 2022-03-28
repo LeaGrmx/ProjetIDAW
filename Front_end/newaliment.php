@@ -4,7 +4,7 @@
 
 <body>
 <form method="post" id="addNewAliment" action="" onsubmit="onFormSubmit();">
-    <p> Données de l'aliment en question : </p><br><br>
+    <h4> Données de l'aliment : </h4><br><br>
     <div class="form-group row">
         <label for="inputNom" class="nom" id="inputNom">Nom de l'aliment</label>
         <input type="text" class="form-control" id="inputNom2" required>
