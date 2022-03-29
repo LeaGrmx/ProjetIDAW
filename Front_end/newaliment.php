@@ -1,4 +1,45 @@
 <?php
+    require_once('../Back_end/database.php');
+    $requete = "SELECT DISTINCT LIBELLE_TYPE, NOM_ALIMENT FROM aliments join types on aliments.id_type = types.id_type ORDER BY types.LIBELLE_TYPE, aliments.NOM_ALIMENT;";
+    $retours = mysqli_query($liaison,$requete);
+    
+    $fichier = fopen("../Back_end/type_aliment.js","w");
+    fclose($fichier);
+    
+    $fichier = fopen("../Back_end/type_aliment.js","w+");
+    $chaine=""; $un_type=""; $chaine_types="";
+
+    fwrite($fichier, "function retour_aliments(un_type)\r\n");
+    fwrite($fichier, "{\r\n\tvar chaine_aliments='';\r\n");
+    fwrite($fichier, "\r\n\tswitch(un_type)\r\n\t{\r\n");
+
+    while($retour = mysqli_fetch_array($retours)){
+        if($retour["liste_types"])!= $un_type){
+            if($un_type!=""){
+                $chaine = rtrim($chaine, "|");
+                $chaine .= "';\r\n";
+                $chaine .= "\t\t\tbreak;\r\n";
+            }
+            $un_type = $retour["liste_types"]);
+            $chaine_types .= $retour["liste_types"]."|";
+            $chaine .= "\t\tcase '".substr($un_type, 0, 50)."':\r\n";
+            $chaine .= "\t\t\tchaine_aliments='";
+        }
+        else{
+            $chaine .= trim(utf8_encode($retour["liste_aliments"]))."|";
+        }
+    }
+    $chaine = rtrim($chaine, "|");
+    $chaine .= "';\r\n";
+    $chaine .= "\t\t\tbreak;\r\n";
+
+    fwrite($fichier, $chaine);
+
+    fwrite($fichier, "\t}\r\n\r\n\treturn chaine_aliments;\r\n}");
+    fclose($fichier);
+?>
+
+<?php
     require_once('template_header.php');
 ?>
 
@@ -6,9 +47,25 @@
 <form method="post" id="addNewAliment" action="" onsubmit="onFormSubmit();">
     <h4> Données de l'aliment : </h4><br><br>
     <div class="form-group row">
+        <select id="choix_type">
+            <option value="00">Sélectionner un type</option>
+            <?php
+                $tous_types = explode("|", rtrim($chaine_types,"|"));
+                foreach($tous_types as $le_type){
+                    echo "<option value='".utf8_encode($le_type)."'>".utf8_encode($le_type)."</option>";
+                }
+            ?>
+        </select>
+    </div>
+    <div class="form-group row">
+        <select id="choix_aliment">
+            <option value="00">Sélectionner un aliment</option>
+        </select>
+    </div>
+    <!-- <div class="form-group row">
         <label for="inputNom" class="nom" id="inputNom">Nom de l'aliment</label>
         <input type="text" class="form-control" id="inputNom2" required>
-    </div>
+    </div> -->
     <div class="form-group row">
         <label for="inputSaison" class="nom" id="inputSaison">Saison(s)</label>
         <input type="text" class="form-control" id="inputSaison2">
@@ -97,3 +154,7 @@
 <?php
     require_once('template_footer.php');
 ?>    
+
+<?php
+    mysqli_close($liaison);
+?>
