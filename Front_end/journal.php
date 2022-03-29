@@ -11,6 +11,7 @@
     renderMenuToHTML($currentPageId='journal');
     ?>
     <p> Vous pouvez saisir les détails de votre repas ici, ils seront ajoutés à vos précédentes sélections. <br> Vous pouvez d'ailleurs les visualiser ci-dessous.</p>
+    <p> Veillez à remplir le champ quantité des parties de repas que vous remplissez!</p>
     <form method="post" id="addNewRepas" action="" onsubmit="onFormSubmit();">
         <div class="form-group row">
             <!-- <label for="inputLogin" class="login" id="inputLogin">Utilisateur</label>
@@ -138,8 +139,6 @@
             let qt8 = $("#qt8").val();
             let login = "<?php echo $currentlogin;?>";
             let repas = {login, date, heure, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2, qt1, qt2, qt3, qt4, qt5, qt6, qt7, qt8};
-            console.log(repas);
-            //$_SERVER["REQUEST_METHOD"] = "POST";
             $.post({
                 url : '../Back_end/journal.php',
                 dataType : 'json',
@@ -177,9 +176,9 @@
             let fruit2 = row.children[10].innerHTML;
             let login = "<?php echo $currentlogin;?>";
             let repas = {login,date,heure,type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; 
-            //$_SERVER["REQUEST_METHOD"]="DELETE";
-            $.delete({
+            $.ajax({
                 url : "../Back_end/journal.php",
+                method : "delete",
                 dataType: "json",
                 data : repas,
             })

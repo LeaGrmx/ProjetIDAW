@@ -53,26 +53,12 @@
         case 'DELETE':
             if(isset($_POST['date'])){
 
-                $login = $_SESSION['login'];
+                $login = $_POST['login'];
                 $date = $_POST['date'];
                 $heure = $_POST['heure'];
                 $repas = $_POST['type_repas'];
-                $entree1 = $_POST['entree1'];
-                $entree2 = $_POST['entree2'];
-                $plat = $_POST['plat'];
-                $accompagnement1 = $_POST['accompagnement1'];
-                $accompagnement2 = $_POST['accompagnement2'];
-                $laitage = $_POST['laitage'];
-                $fruit1 = $_POST['fruit1'];
-                $fruit2 = $_POST['fruit2'];
-                if(isset($_POST['entree1'])||isset($_POST['entree2'])){
-                    $partie_repas = 'Entrée';
-                }
-                if(isset($_POST['plat'])||isset($_POST['entree2'])){
-                    $partie_repas = 'Entrée';
-                }
 
-                $query = "DELETE FROM UTILISATEUR WHERE (DATE_REPAS='$date' AND HEURE_REPAS='$heure' AND NOM_REPAS='$repas' AND PARTIE_DU_REPAS='$partie_repas)";
+                $query = "DELETE FROM MANGE WHERE (DATE_REPAS='$date' AND HEURE_REPAS='$heure' AND NOM_REPAS='$repas')";
                 $result = mysqli_query($mysqli, $query);
                 
                 $res['req'] = $query;
@@ -80,7 +66,7 @@
                 if($result)
                     $res['status'] = 'req OK';    
             
-                //print_r($res);
+                print_r($res);
                 echo json_encode($res);
             }
         break;
