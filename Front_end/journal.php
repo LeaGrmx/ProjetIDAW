@@ -158,16 +158,6 @@
             })
             .fail(function(){
                 console.log('Erreur lors de l\'ajout');
-                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${entree1}</td>
-                <td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td>
-                <td>${accompagnement2}</td><td>${laitage}</td>
-                <td>${fruit1}</td><td>${fruit2}</td>
-                    <td>
-                        <input type="button" value="Modifier" onclick="modif(this)">
-                        <input type="button" value="Supprimer" onclick="suppr(this)">
-                        <input type="button" value="Sauvegarder" onclick="sauv(this)">
-                    </td>
-                </tr>`);
             })
         }
 
@@ -184,7 +174,7 @@
             let fruit1 = row.children[8].innerHTML;
             let fruit2 = row.children[9].innerHTML;
             let repas = {date,type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; 
-            $_SERVER["REQUEST_METHOD"]="DELETE";
+            //$_SERVER["REQUEST_METHOD"]="DELETE";
             $.delete({
                 url : "../Back_end/journal.php",
                 dataType: "json",

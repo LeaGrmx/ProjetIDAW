@@ -51,7 +51,39 @@
         break;
 
         case 'DELETE':
-        
+            if(isset($_POST['date'])){
+                $login = $_SESSION['login'];
+                $date = $_POST['date'];
+                $heure = $_POST['heure'];
+                $repas = $_POST['type_repas'];
+                $entree1 = $_POST['entree1'];
+                $entree2 = $_POST['entree2'];
+                $plat = $_POST['plat'];
+                $accompagnement1 = $_POST['accompagnement1'];
+                $accompagnement2 = $_POST['accompagnement2'];
+                $laitage = $_POST['laitage'];
+                $fruit1 = $_POST['fruit1'];
+                $fruit2 = $_POST['fruit2'];
+                $qt1 = $_POST['qt1'];
+                $qt2 = $_POST['qt2'];
+                $qt3 = $_POST['qt3'];
+                $qt4 = $_POST['qt4'];
+                $qt5 = $_POST['qt5'];
+                $qt6 = $_POST['qt6'];
+                $qt7 = $_POST['qt7'];
+                $qt8 = $_POST['qt8'];
+
+                $query = "DELETE FROM UTILISATEUR WHERE (ALIMENT='$nom' AND Prénom='$prenom' AND Date_de_naissance='$date')";
+                $result = mysqli_query($mysqli, $query);
+                
+                $res['req'] = $query;
+                $res['status'] = 'Erreur requête';
+                if($result)
+                    $res['status'] = 'req OK';    
+            
+                //print_r($res);
+                echo json_encode($res);
+            }
         break;
     }
 ?>
