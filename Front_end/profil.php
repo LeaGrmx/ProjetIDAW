@@ -7,7 +7,7 @@
 <?php
 renderMenuToHTML($currentPageId='profil');
 ?>
-<p> Si vous souhaitez le modifier vous pouvez<a href="">Cliquer ici</a></p>
+<p> Si vous souhaitez le modifier vous pouvez <a href="">cliquer ici</a>.</p>
 </body>
 
 

@@ -5,10 +5,11 @@
 ?>
 
 <body>
+    
+    <h2>REPAS</h2>
     <?php
     renderMenuToHTML($currentPageId='journal');
     ?>
-    <h1>REPAS</h1>
     <p> Vous pouvez saisir les détails de votre repas ici, ils seront ajoutés à vos précédentes sélections. <br> Vous pouvez d'ailleurs les visualiser ci-dessous.</p>
     <form method="post" id="addNewRepas" action="" onsubmit="onFormSubmit();">
         <div class="form-group row">

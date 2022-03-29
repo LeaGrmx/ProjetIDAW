@@ -3,7 +3,7 @@
     require_once("template_menu.php");
 ?>
 
-<h4> Mes aliments </h4>
+<h2> Mes aliments </h2>
 
 <?php
     renderMenuToHTML($currentPageId='aliments');
