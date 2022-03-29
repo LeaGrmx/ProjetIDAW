@@ -1,9 +1,13 @@
 <?php
     require_once('template_header.php');
+    require_once("template_menu.php");
     $currentlogin = $_SESSION['login'];
 ?>
 
 <body>
+    <?php
+    renderMenuToHTML($currentPageId='journal');
+    ?>
     <h1>REPAS</h1>
     <p> Vous pouvez saisir les détails de votre repas ici, ils seront ajoutés à vos précédentes sélections. <br> Vous pouvez d'ailleurs les visualiser ci-dessous.</p>
     <form method="post" id="addNewRepas" action="" onsubmit="onFormSubmit();">
@@ -132,6 +136,7 @@
             let fruit2 = $("#inputFruit2").val();
             let qt8 = $("#qt8").val();
             let repas = {date, heure, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2, qt1, qt2, qt3, qt4, qt5, qt6, qt7, qt8};
+            $_SERVER["REQUEST_METHOD"] = "POST";
             $.post({
                 url : '../Back_end/journal.php',
                 dataType : 'json',
@@ -150,7 +155,7 @@
                 </tr>`);
             })
             .fail(function(){
-                console.log('Erreur');
+                console.log('Erreur lors de l\'ajout');
                 $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${entree1}</td>
                 <td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td>
                 <td>${accompagnement2}</td><td>${laitage}</td>
@@ -177,7 +182,8 @@
             let fruit1 = row.children[8].innerHTML;
             let fruit2 = row.children[9].innerHTML;
             let repas = {date,type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; 
-            $.post({
+            $_SERVER["REQUEST_METHOD"]="DELETE";
+            $.delete({
                 url : "../Back_end/journal.php",
                 dataType: "json",
                 data : repas,
