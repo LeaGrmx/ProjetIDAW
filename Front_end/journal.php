@@ -137,7 +137,8 @@
             let fruit2 = $("#inputFruit2").val();
             let qt8 = $("#qt8").val();
             let repas = {date, heure, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2, qt1, qt2, qt3, qt4, qt5, qt6, qt7, qt8};
-            $_SERVER["REQUEST_METHOD"] = "POST";
+            console.log(repas);
+            //$_SERVER["REQUEST_METHOD"] = "POST";
             $.post({
                 url : '../Back_end/journal.php',
                 dataType : 'json',
