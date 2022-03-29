@@ -1,7 +1,7 @@
 <?php
     require_once('../Back_end/database.php');
     $requete = "SELECT DISTINCT LIBELLE_TYPE, NOM_ALIMENT FROM aliments join types on aliments.id_type = types.id_type ORDER BY types.LIBELLE_TYPE, aliments.NOM_ALIMENT;";
-    $retours = mysqli_query($liaison,$requete);
+    $retours = mysqli_query($mysqli,$requete);
     
     $fichier = fopen("../Back_end/type_aliment.js","w");
     fclose($fichier);
@@ -156,5 +156,5 @@
 ?>    
 
 <?php
-    mysqli_close($liaison);
+    mysqli_close($mysqli);
 ?>
