@@ -25,9 +25,10 @@
         $result1 = mysqli_query($mysqli, $query1);
         $result2 = mysqli_query($mysqli, $query2);
 
-        if($result1 and $result2)
+        if($result1 and $result2){
             echo json_encode($result1);
             echo json_encode($result2);
+        }
         else{
             echo 'Erreur requête';
         }

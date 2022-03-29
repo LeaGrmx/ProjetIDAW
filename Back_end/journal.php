@@ -43,7 +43,7 @@
         $result8 = mysqli_query($mysqli, $query8);
 
 
-        if($result1 and $result2 and $result3 and $result4 and $result5 and $result6 and $result7 and $result8)
+        if($result1 and $result2 and $result3 and $result4 and $result5 and $result6 and $result7 and $result8){
             echo json_encode($result1);
             echo json_encode($result2);
             echo json_encode($result3);
@@ -51,7 +51,9 @@
             echo json_encode($result5);
             echo json_encode($result6);
             echo json_encode($result7);
-            echo json_encode($result8);        
+            echo json_encode($result8);    
+        }
+            
         else{
             echo 'Erreur requête';
         }

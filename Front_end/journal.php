@@ -91,6 +91,7 @@
         <thead>
             <tr>
                 <th scope="col">Date</th>
+                <th scope="col">Heure</th>
                 <th scope="col">Repas</th>
                 <th scope="col">Entrée 1</th>
                 <th scope="col">Entrée 2</th>
@@ -114,7 +115,6 @@
             //let type_repas = $("#inputRepas").val();
             let selectElmt = document.getElementById("repas");
             let type_repas = selectElmt.options[selectElmt.selectedIndex].text;
-            console.log(type_repas);
             let entree1 = $("#inputEntree1").val();
             let qt1 = $("#qt1").val();
             let entree2 = $("#inputEntree2").val();
@@ -138,7 +138,7 @@
                 data : repas
             })
             .done(function(){
-                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${type_repas}</td><td>${entree1}</td>
+                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${entree1}</td>
                 <td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td>
                 <td>${accompagnement2}</td><td>${laitage}</td>
                 <td>${fruit1}</td><td>${fruit2}</td>
@@ -151,7 +151,7 @@
             })
             .fail(function(){
                 console.log('Erreur');
-                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${type_repas}</td><td>${entree1}</td>
+                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${entree1}</td>
                 <td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td>
                 <td>${accompagnement2}</td><td>${laitage}</td>
                 <td>${fruit1}</td><td>${fruit2}</td>
