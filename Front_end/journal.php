@@ -32,8 +32,8 @@
                 <input type="date" class="form-control" id="inputDate" required>
             </div>
             <label for="inputHeure" class="heure"> Heure </label>
-            <div class="heure_repas">
-                <input type="time" class="form-control" id="inputHeure">
+            <div id="heure_repas">
+                <input type="time" class="form-control" id="inputHeure" value="00:00">
             </div>
         </div>
         <br>
@@ -177,8 +177,8 @@
             let login = "<?php echo $currentlogin;?>";
             let repas = {login,date,heure,type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; 
             $.ajax({
-                url : "../Back_end/journal.php",
-                method : "delete",
+                url : "../Back_end/deleteJournal.php",
+                method : "POST",
                 dataType: "json",
                 data : repas,
             })
@@ -242,6 +242,16 @@
                 repas[k].innerHTML = repas[k].childNodes[0].value;
             }
         }
+
+        /* $(document).ready(function(){
+            $('#repas').change(function(){
+                console.log($(this).val());
+                if($(this).val()=='Petit-déjeuner'){
+                    $('#heure_repas').val()='08:00';
+                }
+            });
+        }); */
+
     </script>
 </body>
 <?php
