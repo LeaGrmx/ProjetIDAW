@@ -193,54 +193,71 @@
         function modif(btn) {
             var row = btn.parentNode.parentNode;
             var repas = row.childNodes;
-
-            var date = repas[0];
-            var newdate = date.innerHTML;
-            date.innerHTML = "<input type='text' value='"+newdate+"'>";
-
-            var type_repas = repas[1];
+            var type_repas = repas[2];
+            var entree1 = repas[3];
+            var entree2 = repas[4];
+            var plat = repas[5];
+            var acc1 = repas[6];
+            var acc2 = repas[7];
+            var laitage = repas[8];
+            var fruit1 = repas[9];
+            var fruit2 = repas[10];
             var newtype_repas = type_repas.innerHTML;
             type_repas.innerHTML = "<input type='text' value='"+newtype_repas+"'>";
 
-            var entree1 = repas[2];
             var newentree1 = entree1.innerHTML;
             entree1.innerHTML = "<input type='text' value='"+newentree1+"'>";
 
-            var entree2 = repas[3];
             var newentree2 = entree2.innerHTML;
             entree2.innerHTML = "<input type='text' value='"+newentree2+"'>";
 
-            var plat = repas[4];
             var newplat = plat.innerHTML;
             plat.innerHTML = "<input type='text' value='"+newplat+"'>";
 
-            var acc1 = repas[5];
             var newacc1 = acc1.innerHTML;
             acc1.innerHTML = "<input type='text' value='"+newacc1+"'>";
 
-            var acc2 = repas[6];
             var newacc2 = acc2.innerHTML;
             acc2.innerHTML = "<input type='text' value='"+newacc2+"'>";
 
-            var laitage = repas[7];
             var newlaitage = laitage.innerHTML;
             laitage.innerHTML = "<input type='text' value='"+newlaitage+"'>";
-
-            var fruit1 = repas[8];
+            
             var newfruit1 = fruit1.innerHTML;
             fruit1.innerHTML = "<input type='text' value='"+newfruit1+"'>";
 
-            var fruit2 = repas[9];
             var newfruit2 = fruit2.innerHTML;
-            fruit2.innerHTML = "<input type='text' value='"+newfruit2+"'>";
+            fruit2.innerHTML = "<input type='text' value='"+newfruit2+"'>";   
         }
 
         function sauv(btn) {
             var row = btn.parentNode.parentNode;
-            var repas = row.childNodes;
-            for(k=0;k<=9;k++) {
-                repas[k].innerHTML = repas[k].childNodes[0].value;
-            }
+            var enfant = row.childNodes;
+            var type_repas = enfant[2];
+            var entree1 = enfant[3];
+            var entree2 = enfant[4];    
+            var plat = enfant[5];
+            var acc1 = enfant[6];
+            var acc2 = enfant[7];
+            var laitage = enfant[8];
+            var fruit1 = enfant[9];
+            var fruit2 = enfant[10];
+            repas = {type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2};
+            $.ajax({
+                url :"modifJournal.php",
+                method :"post",
+                dataType :"json",
+                data: repas,
+            })
+            .done(function(){
+                for(k=2;k<=10;k++) {
+                    enfant[k].innerHTML = enfant[k].childNodes[0].value;
+                }
+            })
+            .fail(function(){
+
+            })
+            
         }
 
         /* $(document).ready(function(){
