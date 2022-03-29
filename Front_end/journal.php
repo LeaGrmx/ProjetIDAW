@@ -136,7 +136,8 @@
             let qt7 = $("#qt7").val();
             let fruit2 = $("#inputFruit2").val();
             let qt8 = $("#qt8").val();
-            let repas = {date, heure, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2, qt1, qt2, qt3, qt4, qt5, qt6, qt7, qt8};
+            let login = "<?php echo $currentlogin;?>";
+            let repas = {login, date, heure, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2, qt1, qt2, qt3, qt4, qt5, qt6, qt7, qt8};
             console.log(repas);
             //$_SERVER["REQUEST_METHOD"] = "POST";
             $.post({
@@ -164,16 +165,18 @@
         function suppr(btn) {
             var row = btn.parentNode.parentNode;
             let date = row.children[0].innerHTML;
-            let type_repas = row.children[1].innerHTML;
-            let entree1 = row.children[2].innerHTML;
-            let entree2 = row.children[3].innerHTML;
-            let plat = row.children[4].innerHTML;
-            let acc1 = row.children[5].innerHTML;
-            let acc2 = row.children[6].innerHTML;
-            let laitage = row.children[7].innerHTML;
-            let fruit1 = row.children[8].innerHTML;
-            let fruit2 = row.children[9].innerHTML;
-            let repas = {date,type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; 
+            let heure = row.children[1].innerHTML;
+            let type_repas = row.children[2].innerHTML;
+            let entree1 = row.children[3].innerHTML;
+            let entree2 = row.children[4].innerHTML;
+            let plat = row.children[5].innerHTML;
+            let acc1 = row.children[6].innerHTML;
+            let acc2 = row.children[7].innerHTML;
+            let laitage = row.children[8].innerHTML;
+            let fruit1 = row.children[9].innerHTML;
+            let fruit2 = row.children[10].innerHTML;
+            let login = "<?php echo $currentlogin;?>";
+            let repas = {login,date,heure,type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; 
             //$_SERVER["REQUEST_METHOD"]="DELETE";
             $.delete({
                 url : "../Back_end/journal.php",

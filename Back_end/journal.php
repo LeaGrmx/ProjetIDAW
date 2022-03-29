@@ -5,7 +5,7 @@
     switch($_SERVER["REQUEST_METHOD"]){
         case 'POST':
             if(isset($_POST['date'])){
-                $login = $_SESSION['login'];
+                $login = $_POST['login'];
                 $date = $_POST['date'];
                 $heure = $_POST['heure'];
                 $repas = $_POST['type_repas'];
@@ -29,8 +29,8 @@
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$entree1', '$login', '$qt1', '$date', '$heure','$repas','Entrée')";
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$entree2', '$login', '$qt2', '$date', '$heure','$repas','Entrée')";
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$plat', '$login', '$qt3', '$date', '$heure','$repas','Plat')";
-                $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$acc1', '$login', '$qt4', '$date', '$heure','$repas','Plat')";
-                $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$acc2', '$login', '$qt5', '$date', '$heure','$repas','Plat')";
+                $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$accompagnement1', '$login', '$qt4', '$date', '$heure','$repas','Plat')";
+                $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$accompagnement2', '$login', '$qt5', '$date', '$heure','$repas','Plat')";
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$laitage', '$login', '$qt6', '$date', '$heure','$repas','Dessert')";
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$fruit1', '$login', '$qt7', '$date', '$heure','$repas','Dessert')";
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$fruit2', '$login', '$qt8', '$date', '$heure','$repas','Dessert')";
@@ -52,6 +52,7 @@
 
         case 'DELETE':
             if(isset($_POST['date'])){
+
                 $login = $_SESSION['login'];
                 $date = $_POST['date'];
                 $heure = $_POST['heure'];
@@ -64,16 +65,14 @@
                 $laitage = $_POST['laitage'];
                 $fruit1 = $_POST['fruit1'];
                 $fruit2 = $_POST['fruit2'];
-                $qt1 = $_POST['qt1'];
-                $qt2 = $_POST['qt2'];
-                $qt3 = $_POST['qt3'];
-                $qt4 = $_POST['qt4'];
-                $qt5 = $_POST['qt5'];
-                $qt6 = $_POST['qt6'];
-                $qt7 = $_POST['qt7'];
-                $qt8 = $_POST['qt8'];
+                if(isset($_POST['entree1'])||isset($_POST['entree2'])){
+                    $partie_repas = 'Entrée';
+                }
+                if(isset($_POST['plat'])||isset($_POST['entree2'])){
+                    $partie_repas = 'Entrée';
+                }
 
-                $query = "DELETE FROM UTILISATEUR WHERE (ALIMENT='$nom' AND Prénom='$prenom' AND Date_de_naissance='$date')";
+                $query = "DELETE FROM UTILISATEUR WHERE (DATE_REPAS='$date' AND HEURE_REPAS='$heure' AND NOM_REPAS='$repas' AND PARTIE_DU_REPAS='$partie_repas)";
                 $result = mysqli_query($mysqli, $query);
                 
                 $res['req'] = $query;
