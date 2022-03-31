@@ -214,6 +214,7 @@
         function modif(btn) {
             var row = btn.parentNode.parentNode;
             var repas = row.childNodes;
+            console.log(repas);
             var type_repas = repas[2];
             var place_repas = repas[3];
             var aliment = repas[4];
@@ -268,17 +269,16 @@
             console.log(row);
             var enfant = row.childNodes;
             console.log(enfant);
-            let type_repas = enfant[2];
-            console.log(type_repas);
-            let entree1 = enfant[3];
-            let entree2 = enfant[4];    
-            let plat = enfant[5];
-            let acc1 = enfant[6];
-            let acc2 = enfant[7];
-            let laitage = enfant[8];
-            let fruit1 = enfant[9];
-            let fruit2 = enfant[10];
-            let repas = {type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2};
+            var type_repas = enfant[2];
+            var entree1 = enfant[3];
+            var entree2 = enfant[4];    
+            var plat = enfant[5];
+            var acc1 = enfant[6];
+            var acc2 = enfant[7];
+            var laitage = enfant[8];
+            var fruit1 = enfant[9];
+            var fruit2 = enfant[10];
+            repas = {type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2};
             console.log(repas);
             $.ajax({
                 url :"modifJournal.php",
@@ -292,9 +292,7 @@
                 }
             })
             .fail(function(){
-                console.log("Echec de la sauvegarde");
-                enfant[2] = type_repas;
-                enfant[3] = entree1;
+                console.log("Erreur lors de la mise à jour des données");
             })
             
         }

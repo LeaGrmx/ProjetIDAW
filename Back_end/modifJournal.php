@@ -2,16 +2,14 @@
     require_once('database.php');
 
     $type_repas = $_POST['type_repas'];
-    $entree1 = $_POST['entree1'];
-    $entree2= $_POST['entree2'];
-    $plat= $_POST['plat'];
-    $acc1= $_POST['acc1'];
-    $acc2= $_POST['acc2'];
-    $laitage= $_POST['laitage'];
-    $fruit1= $_POST['fruit1'];
-    $fruit2= $_POST['fruit2'];
+    $ligne=[$_POST['entree1'],$_POST['entree2'],$_POST['plat'],$_POST['acc1'],$_POST['acc2'],$_POST['laitage'],$_POST['fruit1'],$_POST['fruit2']];
+    for each($ligne as $value){
+        if isset($value){
+            $nom_aliment=$value ;
+        }
+    }
 
-    $query = "UPDATE MANGE SET WHERE (DATE_REPAS='$date' AND HEURE_REPAS='$heure' AND NOM_REPAS='$repas')"; 
+    $query = "UPDATE MANGE SET ALIMENT='$nom_aliment' WHERE (DATE_REPAS='$date' AND HEURE_REPAS='$heure' AND NOM_REPAS='$repas')"; 
     $result = mysqli_query($mysqli, $query);
 
     $res['req'] = $query;
