@@ -145,11 +145,7 @@
                 data : repas
             })
             .done(function(){
-                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${entree1}</td>
-                <td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td>
-                <td>${accompagnement2}</td><td>${laitage}</td>
-                <td>${fruit1}</td><td>${fruit2}</td>
-                    <td>
+                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${entree1}</td><td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td><td>${accompagnement2}</td><td>${laitage}</td><td>${fruit1}</td><td>${fruit2}</td><td>
                         <input type="button" value="Modifier" onclick="modif(this)">
                         <input type="button" value="Supprimer" onclick="suppr(this)">
                         <input type="button" value="Sauvegarder" onclick="sauv(this)">
@@ -193,6 +189,7 @@
         function modif(btn) {
             var row = btn.parentNode.parentNode;
             var repas = row.childNodes;
+            console.log(repas);
             var type_repas = repas[2];
             var entree1 = repas[3];
             var entree2 = repas[4];
@@ -233,6 +230,7 @@
         function sauv(btn) {
             var row = btn.parentNode.parentNode;
             var enfant = row.childNodes;
+            console.log(enfant);
             var type_repas = enfant[2];
             var entree1 = enfant[3];
             var entree2 = enfant[4];    
@@ -243,6 +241,7 @@
             var fruit1 = enfant[9];
             var fruit2 = enfant[10];
             repas = {type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2};
+            console.log(repas);
             $.ajax({
                 url :"modifJournal.php",
                 method :"post",
@@ -255,7 +254,7 @@
                 }
             })
             .fail(function(){
-
+                console.log("Erreur lors de la mise à jour des données");
             })
             
         }
