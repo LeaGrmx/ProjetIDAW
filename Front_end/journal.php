@@ -14,9 +14,6 @@
     <p> Veillez à remplir le champ quantité des parties de repas que vous remplissez!</p>
     <form method="post" id="addNewRepas" action="" onsubmit="onFormSubmit();">
         <div class="form-group row">
-            <!-- <label for="inputLogin" class="login" id="inputLogin">Utilisateur</label>
-            <div class="login">
-                <input type="text" class="form-control" id="inputEntree1" name="nomEntree1"> -->
             <label for="inputRepas" class="nom_repas" id="inputRepas">Repas de la journée</label>
             <div class="type_repas">
                 <select id="repas" required>
@@ -37,7 +34,7 @@
             </div>
         </div>
         <br>
-        <div class="form-group row">
+        <!-- <div class="form-group row">
             <label for="inputEntree1" class="nom_entree1">Entrée 1</label>
             <div class="nom-entree1">
                 <input type="text" class="form-control" id="inputEntree1" name="nomEntree1">
@@ -84,6 +81,26 @@
                 <input type="text" class="form-control" id="inputFruit2" name="nomFruit2">
                 <input type="text" id="qt8" placeholder="100g">
             </div>
+        </div> -->
+        <div class="form-group row">
+            <label for="inputPlace" class="nom_place" id="inputPlace">Place dans le repas</label>
+            <div class="place_repas">
+                <select id="place" required>
+                    <option value="Default">Choisissez une valeur</option>
+                    <option value="Entree">Entrée</option>
+                    <option value="Déjeuner">Plat</option>
+                    <option value="Goûter">Dessert</option>
+                    <option value="Dîner">Encas</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <label for="inputAliment" class="nom_aliment">Aliment</label>
+            <div class="nom-aliment">
+                <input type="text" class="form-control" id="inputAliment" name="nomAliment">
+                <input type="text" id="qt" placeholder="100 (en grammes)">
+            </div>
         </div>
         <div class="form-group row">
             <span class="col-sm-2"></span>
@@ -92,21 +109,24 @@
             </div>
        </div>
     </form>
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
     <table id="table_repas">
         <thead>
             <tr>
                 <th scope="col">Date</th>
                 <th scope="col">Heure</th>
                 <th scope="col">Repas</th>
-                <th scope="col">Entrée 1</th>
+<!--                 <th scope="col">Entrée 1</th>
                 <th scope="col">Entrée 2</th>
                 <th scope="col">Plat de résistance</th>
                 <th scope="col">Accompagnement 1</th>
                 <th scope="col">Accompagnement 2</th>
                 <th scope="col">Laitage</th>
                 <th scope="col">Fruit 1</th>
-                <th scope="col">Fruit 2</th>
+                <th scope="col">Fruit 2</th> -->
+                <th scope="col">Place dans le repas</th>
+                <th scope="col">Aliment</th>
+                <th scope="col">Quantité</th>
             </tr>
         </thead>
         <tbody id="AlimentsTableBody">
@@ -121,7 +141,7 @@
             //let type_repas = $("#inputRepas").val();
             let selectElmt = document.getElementById("repas");
             let type_repas = selectElmt.options[selectElmt.selectedIndex].text;
-            let entree1 = $("#inputEntree1").val();
+            /* let entree1 = $("#inputEntree1").val();
             let qt1 = $("#qt1").val();
             let entree2 = $("#inputEntree2").val();
             let qt2 = $("#qt2").val();
@@ -136,25 +156,22 @@
             let fruit1 = $("#inputFruit1").val();
             let qt7 = $("#qt7").val();
             let fruit2 = $("#inputFruit2").val();
-            let qt8 = $("#qt8").val();
+            let qt8 = $("#qt8").val(); */
+            let selectElmt2 = document.getElementById("place");
+            let place_repas = selectElmt2.options[selectElmt2.selectedIndex].text;
+            let aliment = $("#inputAliment").val(); 
+            let qt = $("#qt").val();
             let login = "<?php echo $currentlogin;?>";
-            let repas = {login, date, heure, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2, qt1, qt2, qt3, qt4, qt5, qt6, qt7, qt8};
+          /*   let repas = {login, date, heure, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2, qt1, qt2, qt3, qt4, qt5, qt6, qt7, qt8}; */
+            let repas = {login, date, heure, type_repas, place_repas, aliment, qt};  
             $.post({
-                url : '../Back_end/journal.php',
-                dataType : 'json',
-                data : repas
-            })
+                    url : '../Back_end/journal.php',
+                    dataType : 'json',
+                    data : repas
+                })
             .done(function(){
-                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${entree1}</td>
-                <td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td>
-                <td>${accompagnement2}</td><td>${laitage}</td>
-                <td>${fruit1}</td><td>${fruit2}</td>
-                    <td>
-                        <input type="button" value="Modifier" onclick="modif(this)">
-                        <input type="button" value="Supprimer" onclick="suppr(this)">
-                        <input type="button" value="Sauvegarder" onclick="sauv(this)">
-                    </td>
-                </tr>`);
+                /* $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${entree1}</td><td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td><td>${accompagnement2}</td><td>${laitage}</td><td>${fruit1}</td><td>${fruit2}</td><td><input type="button" value="Modifier" onclick="modif(this)"><input type="button" value="Supprimer" onclick="suppr(this)"><input type="button" value="Sauvegarder" onclick="sauv(this)"></td></tr>`); */
+                $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${place_repas}</td><td>${aliment}</td><td>${qt}</td><td><input type="button" value="Modifier" onclick="modif(this)"><input type="button" value="Supprimer" onclick="suppr(this)"><input type="button" value="Sauvegarder" onclick="sauv(this)"></td></tr>`);
             })
             .fail(function(){
                 console.log('Erreur lors de l\'ajout');
@@ -166,16 +183,20 @@
             let date = row.children[0].innerHTML;
             let heure = row.children[1].innerHTML;
             let type_repas = row.children[2].innerHTML;
-            let entree1 = row.children[3].innerHTML;
+            let place_repas  = row.children[3].innerHTML;
+            let aliment = row.children[4].innerHTML;
+            let qt = row.children[5].innerHTML;
+            /* let entree1 = row.children[3].innerHTML;
             let entree2 = row.children[4].innerHTML;
             let plat = row.children[5].innerHTML;
             let acc1 = row.children[6].innerHTML;
             let acc2 = row.children[7].innerHTML;
             let laitage = row.children[8].innerHTML;
             let fruit1 = row.children[9].innerHTML;
-            let fruit2 = row.children[10].innerHTML;
+            let fruit2 = row.children[10].innerHTML; */
             let login = "<?php echo $currentlogin;?>";
-            let repas = {login,date,heure,type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; 
+            /* let repas = {login,date,heure,type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2};  */
+            let repas = {login,date,heure,type_repas,place_repas,aliment,qt}; 
             $.ajax({
                 url : "../Back_end/deleteJournal.php",
                 method : "POST",
@@ -194,18 +215,21 @@
             var row = btn.parentNode.parentNode;
             var repas = row.childNodes;
             var type_repas = repas[2];
-            var entree1 = repas[3];
+            var place_repas = repas[3];
+            var aliment = repas[4];
+            var qt = repas [5];
+/*             var entree1 = repas[3];
             var entree2 = repas[4];
             var plat = repas[5];
             var acc1 = repas[6];
             var acc2 = repas[7];
             var laitage = repas[8];
             var fruit1 = repas[9];
-            var fruit2 = repas[10];
+            var fruit2 = repas[10]; */
             var newtype_repas = type_repas.innerHTML;
             type_repas.innerHTML = "<input type='text' value='"+newtype_repas+"'>";
 
-            var newentree1 = entree1.innerHTML;
+            /* var newentree1 = entree1.innerHTML;
             entree1.innerHTML = "<input type='text' value='"+newentree1+"'>";
 
             var newentree2 = entree2.innerHTML;
@@ -227,22 +251,35 @@
             fruit1.innerHTML = "<input type='text' value='"+newfruit1+"'>";
 
             var newfruit2 = fruit2.innerHTML;
-            fruit2.innerHTML = "<input type='text' value='"+newfruit2+"'>";   
+            fruit2.innerHTML = "<input type='text' value='"+newfruit2+"'>";    */
+
+            var newplace_repas = place_repas.innerHTML;
+            place_repas.innerHTML = "<input type='text' value='"+newplace_repas+"'>";
+
+            var newaliment = aliment.innerHTML;
+            aliment.innerHTML = "<input type='text' value='"+newaliment+"'>";
+
+            var newqt = qt.innerHTML;
+            qt.innerHTML = "<input type='text' value='"+newqt+"'>";
         }
 
         function sauv(btn) {
             var row = btn.parentNode.parentNode;
+            console.log(row);
             var enfant = row.childNodes;
-            var type_repas = enfant[2];
-            var entree1 = enfant[3];
-            var entree2 = enfant[4];    
-            var plat = enfant[5];
-            var acc1 = enfant[6];
-            var acc2 = enfant[7];
-            var laitage = enfant[8];
-            var fruit1 = enfant[9];
-            var fruit2 = enfant[10];
-            repas = {type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2};
+            console.log(enfant);
+            let type_repas = enfant[2];
+            console.log(type_repas);
+            let entree1 = enfant[3];
+            let entree2 = enfant[4];    
+            let plat = enfant[5];
+            let acc1 = enfant[6];
+            let acc2 = enfant[7];
+            let laitage = enfant[8];
+            let fruit1 = enfant[9];
+            let fruit2 = enfant[10];
+            let repas = {type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2};
+            console.log(repas);
             $.ajax({
                 url :"modifJournal.php",
                 method :"post",
@@ -255,7 +292,9 @@
                 }
             })
             .fail(function(){
-
+                console.log("Echec de la sauvegarde");
+                enfant[2] = type_repas;
+                enfant[3] = entree1;
             })
             
         }
