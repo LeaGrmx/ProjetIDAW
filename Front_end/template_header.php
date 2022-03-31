@@ -6,8 +6,5 @@
             <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     </head>
 <?php
-    session_start();
-    if (isset($_SESSION['login'])){
-        echo "<p> Vous êtes connecté en tant que : ".$_SESSION['login'];
-    }    
+    session_start(); 
 ?>
