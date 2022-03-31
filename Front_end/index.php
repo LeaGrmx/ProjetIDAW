@@ -52,8 +52,7 @@
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                    <label class="custom-control-label" for="customCheck">Remember
-                                                        Me</label>
+                                                    <label class="custom-control-label" for="customCheck">Se souvenir de moi</label>
                                                 </div>
                                             </div>
                                             <input type="submit" class="btn btn-primary btn-user btn-block" value="Se connecter...">
@@ -62,7 +61,7 @@
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="forgot-password.html">Vous avez oublié votre mot de passe?</a>
+                                            <a class="small" href="forgot-password.php">Mot de passe oublié?</a>
                                         </div>
                                         <div class="text-center">
                                             <a class="small" href="newprofil.php">Créer mon compte!</a>

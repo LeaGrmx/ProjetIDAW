@@ -1,51 +1,84 @@
 <?php
     require_once('template_header.php');
 ?>
+<body class="bg-gradient-primary">
 
-<h4> Créer un compte </h4>
-<p> Pour créer un compte, veuillez remplir les champs suivants : </p>
-<form id="new_form" action="../Back_end/profil.php" method="POST">
-        <table> 
-            <tr>
-                <th>Login :</th>
-                <td><input type="text" name="login"></td>
-            </tr> 
-            <tr>
-                <th>Mot de passe :</th>
-                <td><input type="password" name="password"></td>
-            </tr> 
-            <tr>
-                <th>Nom :</th>
-                <td><input type="text" name="nom"></td>
-            </tr>
-            <tr>
-                <th>Prénom :</th>
-                <td><input type="text" name="prénom"></td>
-            </tr>
-            <tr>
-                <th>Age :</th>
-                <td><select name="age">
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                </select></td>
-            </tr>
-            <tr>
-                <th>Sexe :</th>
-                <td><select name="sexe">
-                    <option value="M">M</option>
-                    <option value="F">F</option>
-                </select></td>
-            </tr>
-            <tr>
-                <th></th>
-                <td><input type="submit" value="Créer mon compte" /></td>
-            </tr>
-        </table>
-    </form>
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <!-- <div class="col-lg-5 d-none d-lg-block"></div> -->
+                <div class="col-lg-12">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Créer un compte!</h1>
+                        </div>
+                        <form class="user" id="new_form" action="../Back_end/profil.php" method="POST">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" name="nom"
+                                        placeholder="Nom">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" name="prénom"
+                                        placeholder="Prénom">       
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user"
+                                        name="login" placeholder="Login">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="number" class="form-control form-control-user"
+                                        name="age" placeholder="Age">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    placeholder="Adresse mail">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" class="form-control form-control-user"
+                                        name="password" id="exampleInputPassword" placeholder="Mot de passe">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control form-control-user"
+                                        name="repeat_password" id="exampleRepeatPassword" placeholder="Confirmez le mot de passe">
+                                </div>
+                            </div>
+                            <input class="btn btn-primary btn-user btn-block" type="submit" value="Valider" />
+                            <hr>
+                        </form>
+                        <hr>
+                        <div class="text-center">
+                            <a class="small" href="forgot-password.php">Mot de passe oublié?</a>
+                        </div>
+                        <div class="text-center">
+                            <a class="small" href="index.php">Vous avez déjà un compte? Connectez-vous!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+</body>
 
 <?php
 require_once('template_footer.php');

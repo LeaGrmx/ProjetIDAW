@@ -28,6 +28,7 @@
         if(!$successfullyLogged) {
             echo $errorText;
             echo "<br><a href=\"../Front_end/index.php\">Retour à la page de connexion</a>";
+            header('Location: ../Front_end/errorPassword.php');
         } else {
             echo "<h1>Bienvenue ".$login."</h1>";
             $_SESSION['login'] = $login;
