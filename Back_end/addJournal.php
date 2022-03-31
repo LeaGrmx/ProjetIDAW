@@ -9,7 +9,10 @@
                 $date = $_POST['date'];
                 $heure = $_POST['heure'];
                 $repas = $_POST['type_repas'];
-                $entree1 = $_POST['entree1'];
+                $place_repas = $_POST['place_repas'];
+                $aliment = $_POST['aliment'];
+                $qt = $_POST['qt'];
+/*                 $entree1 = $_POST['entree1'];
                 $entree2 = $_POST['entree2'];
                 $plat = $_POST['plat'];
                 $accompagnement1 = $_POST['accompagnement1'];
@@ -25,7 +28,8 @@
                 $qt6 = $_POST['qt6'];
                 $qt7 = $_POST['qt7'];
                 $qt8 = $_POST['qt8'];
-
+ */
+/* 
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$entree1', '$login', '$qt1', '$date', '$heure','$repas','Entrée')";
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$entree2', '$login', '$qt2', '$date', '$heure','$repas','Entrée')";
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$plat', '$login', '$qt3', '$date', '$heure','$repas','Plat')";
@@ -33,9 +37,10 @@
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$accompagnement2', '$login', '$qt5', '$date', '$heure','$repas','Plat')";
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$laitage', '$login', '$qt6', '$date', '$heure','$repas','Dessert')";
                 $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$fruit1', '$login', '$qt7', '$date', '$heure','$repas','Dessert')";
-                $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$fruit2', '$login', '$qt8', '$date', '$heure','$repas','Dessert')";
-
-                $result = true;
+                $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$fruit2', '$login', '$qt8', '$date', '$heure','$repas','Dessert')"; 
+*/
+                $query[] = "INSERT INTO MANGE (ALIMENT,LOGIN_USER,QUANTITE,DATE_REPAS,HEURE_REPAS,NOM_REPAS,PARTIE_DU_REPAS) VALUES ('$aliment','$login','$qt','$date','$heure','$repas','$place_repas')";
+               /*  $result = true;
                 $result = $result && mysqli_query($mysqli, $query[0]);
                 $result = $result &&  mysqli_query($mysqli, $query[1]);
                 $result = $result &&  mysqli_query($mysqli, $query[2]);
@@ -43,9 +48,11 @@
                 $result = $result &&  mysqli_query($mysqli, $query[4]);
                 $result = $result &&  mysqli_query($mysqli, $query[5]);
                 $result = $result &&  mysqli_query($mysqli, $query[6]);
-                $result = $result &&  mysqli_query($mysqli, $query[7]);
-
-                $result['queries'] = $query;
+                $result = $result &&  mysqli_query($mysqli, $query[7]); 
+ */
+                $result = true;
+                $result = $result && mysqli_query($mysqli, $query[0]);
+                /* $result['queries'] = $query;  */
                 echo json_encode($result);    
             }
         break;
