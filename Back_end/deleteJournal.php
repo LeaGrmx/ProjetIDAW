@@ -1,5 +1,6 @@
 <?php 
     require_once('database.php');
+    $mysqli->set_charset("utf8mb4");
 
     if(isset($_POST['date'])){
         $repas = $_POST['type_repas'];
