@@ -165,7 +165,7 @@
           /*   let repas = {login, date, heure, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2, qt1, qt2, qt3, qt4, qt5, qt6, qt7, qt8}; */
             let repas = {login, date, heure, type_repas, place_repas, aliment, qt};  
             $.post({
-                    url : '../Back_end/journal.php',
+                    url : '../Back_end/addJournal.php',
                     dataType : 'json',
                     data : repas
                 })
@@ -227,8 +227,8 @@
             var laitage = repas[8];
             var fruit1 = repas[9];
             var fruit2 = repas[10]; */
-            var newtype_repas = type_repas.innerHTML;
-            type_repas.innerHTML = "<input type='text' value='"+newtype_repas+"'>";
+            /* var newtype_repas = type_repas.innerHTML;
+            type_repas.innerHTML = "<input type='text' id ='type_repas_modif' value='"+newtype_repas+"'>"; */
 
             /* var newentree1 = entree1.innerHTML;
             entree1.innerHTML = "<input type='text' value='"+newentree1+"'>";
@@ -254,40 +254,53 @@
             var newfruit2 = fruit2.innerHTML;
             fruit2.innerHTML = "<input type='text' value='"+newfruit2+"'>";    */
 
-            var newplace_repas = place_repas.innerHTML;
-            place_repas.innerHTML = "<input type='text' value='"+newplace_repas+"'>";
+            /* var newplace_repas = place_repas.innerHTML;
+            place_repas.innerHTML = "<input type='text' id='place_repas_modif' value='"+newplace_repas+"'>"; */
 
             var newaliment = aliment.innerHTML;
-            aliment.innerHTML = "<input type='text' value='"+newaliment+"'>";
+            aliment.innerHTML = "<input type='text' id='aliment_modif' value='"+newaliment+"'>";
 
             var newqt = qt.innerHTML;
-            qt.innerHTML = "<input type='text' value='"+newqt+"'>";
+            qt.innerHTML = "<input type='text' id='qt_modif' value='"+newqt+"'>";
         }
 
         function sauv(btn) {
-            var row = btn.parentNode.parentNode;
+          /*   var row = btn.parentNode.parentNode;
             console.log(row);
             var enfant = row.childNodes;
             console.log(enfant);
-            var type_repas = enfant[2];
-            var entree1 = enfant[3];
+            var type_repas = enfant[2]; */
+ /*            var entree1 = enfant[3];
             var entree2 = enfant[4];    
             var plat = enfant[5];
             var acc1 = enfant[6];
             var acc2 = enfant[7];
             var laitage = enfant[8];
             var fruit1 = enfant[9];
-            var fruit2 = enfant[10];
-            repas = {type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2};
+            var fruit2 = enfant[10]; */
+            /* var place_repas = enfant[3];
+            var aliment = enfant[4];
+            var qt = enfant[5]; */
+            /* var date = 
+            var heure = */
+            var login = "<?php echo $currentlogin;?>";
+            /* var type_repas = $("#type_repas_modif").val();
+            var place_repas = $("#place_repas_modif").val(); */
+            var aliment = $("#aliment_modif").val();
+            var qt = $("#qt_modif").val();
+            /* repas = {type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; */
+            var repas = {aliment, qt, login};
             console.log(repas);
             $.ajax({
-                url :"modifJournal.php",
+                url :"../Back_end/sauvJournal.php",
                 method :"post",
                 dataType :"json",
                 data: repas,
             })
             .done(function(){
-                for(k=2;k<=10;k++) {
+                for(k=4;k<=5;k++) {
+                    var row = btn.parentNode.parentNode;
+                    var enfant = row.childNodes;
                     enfant[k].innerHTML = enfant[k].childNodes[0].value;
                 }
             })

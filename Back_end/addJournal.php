@@ -1,6 +1,7 @@
 <?php
     
     require_once("database.php");
+    $mysqli->set_charset("utf8mb4");
     
     switch($_SERVER["REQUEST_METHOD"]){
         case 'POST':
