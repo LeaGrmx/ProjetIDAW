@@ -289,7 +289,7 @@
             var aliment = $("#aliment_modif").val();
             var qt = $("#qt_modif").val();
             /* repas = {type_repas,entree1,entree2,plat,acc1,acc2,laitage,fruit1,fruit2}; */
-            var repas = {type_repas, place_repas, aliment, qt};
+            var repas = {aliment, qt, login};
             console.log(repas);
             $.ajax({
                 url :"../Back_end/sauvJournal.php",
