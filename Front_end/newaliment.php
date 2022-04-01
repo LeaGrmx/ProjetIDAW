@@ -1,5 +1,5 @@
 <?php
-    require_once('../Back_end/database.php');
+    /* require_once('../Back_end/database.php');
     $requete = "SELECT DISTINCT LIBELLE_TYPE, NOM_ALIMENT FROM aliments join types on aliments.id_type = types.id_type ORDER BY types.LIBELLE_TYPE, aliments.NOM_ALIMENT;";
     $retours = mysqli_query($mysqli,$requete);
     
@@ -36,8 +36,8 @@
     fwrite($fichier, $chaine);
 
     fwrite($fichier, "\t}\r\n\r\n\treturn chaine_aliments;\r\n}");
-    fclose($fichier);
-?>
+    fclose($fichier); */
+?> 
 
 <?php
     require_once('template_header.php');
