@@ -232,7 +232,7 @@
                                                     name="quantite" id="qt" placeholder="Quantité (en g)">
                                             </div>
                                         </div>
-                                        <input class="btn btn-warning btn-user btn-block" type="submit" value="Valider" />
+                                        <input class="btn btn-warning btn-user btn-block" type="submit" value="Valider"/>
                                         <hr>
                                     </form>
                                 </div>
@@ -247,6 +247,29 @@
             </div>
         </div>
     </div>
+
+    <table id="table_repas">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Heure</th>
+                <th scope="col">Repas</th>
+<!--                 <th scope="col">Entrée 1</th>
+                <th scope="col">Entrée 2</th>
+                <th scope="col">Plat de résistance</th>
+                <th scope="col">Accompagnement 1</th>
+                <th scope="col">Accompagnement 2</th>
+                <th scope="col">Laitage</th>
+                <th scope="col">Fruit 1</th>
+                <th scope="col">Fruit 2</th> -->
+                <th scope="col">Place dans le repas</th>
+                <th scope="col">Aliment</th>
+                <th scope="col">Quantité</th>
+            </tr>
+        </thead>
+        <tbody id="AlimentsTableBody">
+        </tbody>
+    </table>
 
 <script>
     function onFormSubmit() {
