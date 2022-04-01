@@ -9,7 +9,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="accueil.php">
@@ -55,6 +55,15 @@
                 </a>
             </li>
 
+            <!-- Nav Item - Repas -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="repas.php" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Mon dernier repas</span>
+                </a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -76,8 +85,10 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <!--Se déconnecter -->
-            <div class="sidebar-heading text-center active mark">
-                <a href="../Back_end/unconnected.php">Se déconnecter</a>
+            <div class="sidebar-heading text-center active">
+                <a href="../Back_end/unconnected.php"><i class="fas fa-fw fa-folder"></i>
+                    <span>Se déconnecter</span>
+                </a>
             </div>
             
         </ul>
@@ -104,7 +115,7 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Recherche..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-dark" type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
@@ -397,7 +408,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; iMangerMieux 2022</span>
                     </div>
                 </div>
             </footer>

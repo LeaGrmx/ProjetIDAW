@@ -4,111 +4,191 @@
     $currentlogin = $_SESSION['login'];
 ?>
 
-<body>
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="accueil.php">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3"><inf>i</inf>MangerMieux</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="accueil.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Accueil</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Alimentation
+            </div>
+
+            <!-- Nav Item - Aliments -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="aliments.php" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Mes aliments</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Journal -->
+            <li class="nav-item active">
+                <a class="nav-link collapsed" href="journal.php" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Mon journal</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Repas -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="repas.php" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Mon dernier repas</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Profil
+            </div>
+
+            <!-- Nav Item - Mes informations -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="profil.php" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Mes informations</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!--Se déconnecter -->
+            <div class="sidebar-heading text-center active">
+                <a href="../Back_end/unconnected.php"><i class="fas fa-fw fa-folder"></i>
+                    <span>Se déconnecter</span>
+            </div>
+            
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Recherche..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-success" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['login']?></span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Mon journal</h1>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-success">Vous êtes sur votre journal !</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>Sur cette page, vous avez la possibilité de voir l'ensemble <br> de vos saisies de repas.</p>
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-success">Ajouter un nouveau repas</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>Pour saisir les informations de vos derniers repas, <br>vous pouvez <a href="repas.php">cliquer ici</a>!</p>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<!-- Ancien code -->
     
-    <h2>REPAS</h2>
-    <?php
-    renderMenuToHTML($currentPageId='journal');
-    ?>
-    <p> Vous pouvez saisir les détails de votre repas ici, ils seront ajoutés à vos précédentes sélections. <br> Vous pouvez d'ailleurs les visualiser ci-dessous.</p>
-    <p> Veillez à remplir le champ quantité des parties de repas que vous remplissez!</p>
-    <form method="post" id="addNewRepas" action="" onsubmit="onFormSubmit();">
-        <div class="form-group row">
-            <label for="inputRepas" class="nom_repas" id="inputRepas">Repas de la journée</label>
-            <div class="type_repas">
-                <select id="repas" required>
-                    <option value="Default">Choisissez une valeur</option>
-                    <option value="Petit-déjeuner">Petit-déjeuner</option>
-                    <option value="Déjeuner">Déjeuner</option>
-                    <option value="Goûter">Goûter</option>
-                    <option value="Dîner">Dîner</option>
-                </select>
-            </div>
-            <label for="inputDate" class="date"> Date </label>
-            <div class="date_repas">
-                <input type="date" class="form-control" id="inputDate" required>
-            </div>
-            <label for="inputHeure" class="heure"> Heure </label>
-            <div id="heure_repas">
-                <input type="time" class="form-control" id="inputHeure" value="00:00">
-            </div>
-        </div>
-        <br>
-        <!-- <div class="form-group row">
-            <label for="inputEntree1" class="nom_entree1">Entrée 1</label>
-            <div class="nom-entree1">
-                <input type="text" class="form-control" id="inputEntree1" name="nomEntree1">
-                <input type="text" id="qt1" placeholder="100g">
-            </div>
-            <label for="inputEntree2" class="nom_entree2">Entrée 2</label>
-            <div class="nom-entree2">
-                <input type="text" class="form-control" id="inputEntree2" name="nomEntree2">
-                <input type="text" id="qt2" placeholder="100g">
-            </div>
-        </div>
-        <br>
-        <div class="form-group row">
-            <label for="inputPlat" class="nom_plat">Plat de résistance</label>
-            <div class="nom-plat2">
-                <input type="text" class="form-control" id="inputPlat" name="nomPlat">
-                <input type="text" id="qt3" placeholder="100g">
-            </div>
-            <label for="inputAcc1" class="nom_acc1">Accompagnement 1</label>
-            <div class="nom-acc11">
-                <input type="text" class="form-control" id="inputAcc1" name="nomAcc1">
-                <input type="text" id="qt4" placeholder="100g">
-            </div>
-            <label for="inputAcc2" class="nom_acc2">Accompagnement 2</label>
-            <div class="nom-acc21">
-                <input type="text" class="form-control" id="inputAcc2" name="nomAcc2">
-                <input type="text" id="qt5" placeholder="100g">
-            </div>
-        </div>
-        <br>       
-        <div class="form-group row">
-            <label for="inputLaitage" class="nom_lait">Laitage</label>
-            <div class="nom-lait">
-                <input type="text" class="form-control" id="inputLait" name="nomLait">
-                <input type="text" id="qt6" placeholder="100g">
-            </div>
-            <label for="inputFruit" class="nom_fruit">Fruit 1</label>
-            <div class="nom-fruit1">
-                <input type="text" class="form-control" id="inputFruit1" name="nomFruit1">
-                <input type="text" id="qt7" placeholder="100g">
-            </div>
-            <label for="inputFruit" class="nom_fruit">Fruit 2</label>
-            <div class="nom-fruit2">
-                <input type="text" class="form-control" id="inputFruit2" name="nomFruit2">
-                <input type="text" id="qt8" placeholder="100g">
-            </div>
-        </div> -->
-        <div class="form-group row">
-            <label for="inputPlace" class="nom_place" id="inputPlace">Place dans le repas</label>
-            <div class="place_repas">
-                <select id="place" required>
-                    <option value="Default">Choisissez une valeur</option>
-                    <option value="Entree">Entrée</option>
-                    <option value="Déjeuner">Plat</option>
-                    <option value="Goûter">Dessert</option>
-                    <option value="Dîner">Encas</option>
-                </select>
-            </div>
-        </div>
-        <br>
-        <div class="form-group row">
-            <label for="inputAliment" class="nom_aliment">Aliment</label>
-            <div class="nom-aliment">
-                <input type="text" class="form-control" id="inputAliment" name="nomAliment">
-                <input type="text" id="qt" placeholder="100 (en grammes)">
-            </div>
-        </div>
-        <div class="form-group row">
-            <span class="col-sm-2"></span>
-            <div class="col-sm-2">
-                <button type="submit" class="btn btn-primary form-control">Valider</button>
-            </div>
-       </div>
-    </form>
 <br><br><br><br><br>
     <table id="table_repas">
         <thead>

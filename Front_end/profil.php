@@ -9,7 +9,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="accueil.php">
@@ -55,6 +55,15 @@
                 </a>
             </li>
 
+            <!-- Nav Item - Repas -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="repas.php" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Mon dernier repas</span>
+                </a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -76,8 +85,9 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <!--Se déconnecter -->
-            <div class="sidebar-heading text-center active mark">
-                <a href="../Back_end/unconnected.php">Se déconnecter</a>
+            <div class="sidebar-heading text-center active">
+                <a href="../Back_end/unconnected.php"><i class="fas fa-fw fa-folder"></i>
+                    <span>Se déconnecter</span>
             </div>
             
         </ul>
@@ -103,7 +113,7 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Recherche..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-info" type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
@@ -149,7 +159,7 @@
                     <div class="row">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Vous êtes sur la page dédiée à votre profil</h6>
+                                    <h6 class="m-0 font-weight-bold text-info">Vous êtes sur la page dédiée à votre profil</h6>
                                 </div>
                                 <div class="card-body">
                                     <p>Pour le modifier, vous pouvez <a
