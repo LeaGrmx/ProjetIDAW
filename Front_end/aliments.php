@@ -221,35 +221,35 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>Banane</td>
+                                            <td>204</td>
+                                            <td>90</td>
+                                            <td>75</td>
+                                            <td>1</td>
+                                            <td>19</td>
+                                            <td>0</td>
+                                            <td>15</td>
+                                            <td>2</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>7</td>
                                             <td><input type="button" class="btn btn-primary btn-user btn-block" value="Modifier" onclick="modif(this)"><input type="button" class="btn btn-danger btn-user btn-block" value="Supprimer" onclick="suppr(this)"><input type="button" class="btn btn-success btn-user btn-block" value="Sauvegarder" onclick="sauv(this)"></td>
                                         </tr>
                                         <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>Carotte crue</td>
+                                            <td>201</td>
+                                            <td>40</td>
+                                            <td>88</td>
+                                            <td>0</td>
+                                            <td>7</td>
+                                            <td>0</td>
+                                            <td>6</td>
+                                            <td>2</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>2</td>
                                             <td><input type="button" class="btn btn-primary btn-user btn-block" value="Modifier" onclick="modif(this)"><input type="button" class="btn btn-danger btn-user btn-block" value="Supprimer" onclick="suppr(this)"><input type="button" class="btn btn-success btn-user btn-block" value="Sauvegarder" onclick="sauv(this)"></td>
                                         </tr>
                                     </tbody>
