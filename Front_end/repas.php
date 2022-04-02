@@ -184,7 +184,7 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row justify-content-center">
+                    <div class="row">
                         <div class="col-lg-6 mb-4">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -240,6 +240,32 @@
 
                             </div>
                         </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-warning">Données venant d'être ajoutées</h6>
+                                </div>
+                                <div class="card body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable_repas" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Heure</th>
+                                                    <th scope="col">Repas</th>
+                                                    <th scope="col">Moment du repas</th>
+                                                    <th scope="col">Aliment</th>
+                                                    <th scope="col">Quantité</th>
+                                                    <th scope="col">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="AlimentsTableBody">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -248,28 +274,7 @@
         </div>
     </div>
 
-    <table id="table_repas">
-        <thead>
-            <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Heure</th>
-                <th scope="col">Repas</th>
-<!--                 <th scope="col">Entrée 1</th>
-                <th scope="col">Entrée 2</th>
-                <th scope="col">Plat de résistance</th>
-                <th scope="col">Accompagnement 1</th>
-                <th scope="col">Accompagnement 2</th>
-                <th scope="col">Laitage</th>
-                <th scope="col">Fruit 1</th>
-                <th scope="col">Fruit 2</th> -->
-                <th scope="col">Place dans le repas</th>
-                <th scope="col">Aliment</th>
-                <th scope="col">Quantité</th>
-            </tr>
-        </thead>
-        <tbody id="AlimentsTableBody">
-        </tbody>
-    </table>
+    
 
 <script>
     function onFormSubmit() {
@@ -309,7 +314,7 @@
             })
         .done(function(){
             /* $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${entree1}</td><td>${entree2}</td><td>${plat}</td><td>${accompagnement1}</td><td>${accompagnement2}</td><td>${laitage}</td><td>${fruit1}</td><td>${fruit2}</td><td><input type="button" value="Modifier" onclick="modif(this)"><input type="button" value="Supprimer" onclick="suppr(this)"><input type="button" value="Sauvegarder" onclick="sauv(this)"></td></tr>`); */
-            $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${place_repas}</td><td>${aliment}</td><td>${qt}</td><td><input type="button" value="Modifier" onclick="modif(this)"><input type="button" value="Supprimer" onclick="suppr(this)"><input type="button" value="Sauvegarder" onclick="sauv(this)"></td></tr>`);
+            $('#AlimentsTableBody').append(`<tr><td>${date}</td><td>${heure}</td><td>${type_repas}</td><td>${place_repas}</td><td>${aliment}</td><td>${qt}</td><td><input type="button" class="btn btn-primary btn-user btn-block" value="Modifier" onclick="modif(this)"><input type="button" class="btn btn-danger btn-user btn-block" value="Supprimer" onclick="suppr(this)"><input type="button" class="btn btn-success btn-user btn-block" value="Sauvegarder" onclick="sauv(this)"></td></tr>`);
         })
         .fail(function(){
             console.log('Erreur lors de l\'ajout');
