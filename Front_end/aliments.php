@@ -2,6 +2,17 @@
     require_once("template_header.php");
     require_once("template_menu.php");
 ?>
+<head>
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+</head>
+
 
 <body id="page-top">
 
@@ -180,8 +191,73 @@
                             </div>
                         </div>  
                     </div>
-                </div>
 
+                    <!-- Content Row :datatable-->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-danger">Base de données des aliments</h6>
+                            <p> Dans cette table, les apports calorifiques sont indiqués en kcal/100g, la quantité de vitamine D est renseignée en microg/100g, les quantités de vitamines E et C en mg/100g et le reste des données est renseigné en (g/100g).</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>ID_TYPE</th>
+                                            <th>Apport calorifique</th>
+                                            <th>Eau</th>
+                                            <th>Protéines</th>
+                                            <th>Glucides</th>
+                                            <th>Lipides</th>
+                                            <th>Sucre</th>
+                                            <th>Fibres</th>
+                                            <th>Sel</th>
+                                            <th>Vit.D</th>
+                                            <th>Vit.C</th>
+                                            <th>Vit.E</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><input type="button" class="btn btn-primary btn-user btn-block" value="Modifier" onclick="modif(this)"><input type="button" class="btn btn-danger btn-user btn-block" value="Supprimer" onclick="suppr(this)"><input type="button" class="btn btn-success btn-user btn-block" value="Sauvegarder" onclick="sauv(this)"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>63</td>
+                                            <td>2011/07/25</td>
+                                            <td>$170,750</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><input type="button" class="btn btn-primary btn-user btn-block" value="Modifier" onclick="modif(this)"><input type="button" class="btn btn-danger btn-user btn-block" value="Supprimer" onclick="suppr(this)"><input type="button" class="btn btn-success btn-user btn-block" value="Sauvegarder" onclick="sauv(this)"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
