@@ -268,6 +268,113 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+    function suppr(btn) {
+            var row = btn.parentNode.parentNode;
+            let nom = row.children[0].innerHTML;
+            let id_type = row.children[1].innerHTML;
+            let apports = row.children[2].innerHTML;
+            let eau  = row.children[3].innerHTML;
+            let proteines = row.children[4].innerHTML;
+            let glucides = row.children[5].innerHTML;
+            let lipides = row.children[6].innerHTML;
+            let sucres = row.children[7].innerHTML;
+            let fibres = row.children[8].innerHTML;
+            let sel = row.children[9].innerHTML;
+            let vd = row.children[10].innerHTML;
+            let vc = row.children[11].innerHTML;
+            let ve = row.children[12].innerHTML;
+            let aliment = {nom,id_type,apports,eau,proteines,glucides,lipides,sucres,fibres,sel,vd,vc,ve};
+            $.ajax({
+                url : "../Back_end/deleteAliment.php",
+                method : "POST",
+                dataType: "json",
+                data : aliment,
+            })
+            .done(function(data){
+                row.parentNode.removeChild(row);
+            })
+            .fail(function(){
+                console.log('Erreur lors de la suppression');
+            })
+        }
+    
+    function modif(btn) {
+        var row = btn.parentNode.parentNode;
+        var aliment = row.childNodes;
+        console.log(aliment);
+        var apports = repas[2];
+        var eau = repas[3];
+        var proteines = repas[4];
+        var glucides = repas [5];
+        var lipides = repas [6];
+        var sucres = repas [7];
+        var fibres = repas [8];
+        var sel = repas [9];
+        var vd = repas [10];
+        var vc = repas [11];
+        var ve = repas [12];
+        var newapports = apports.innerHTML;
+        apports.innerHTML = "<input type='text' id='apports_modif' value='"+newapports+"'>";
+        var neweau = eau.innerHTML;
+        eau.innerHTML = "<input type='text' id='eau_modif' value='"+neweau+"'>";
+        var newproteines = proteines.innerHTML;
+        proteines.innerHTML = "<input type='text' id='proteines_modif' value='"+newproteines+"'>";
+        var newglucides = glucides.innerHTML;
+        glucides.innerHTML = "<input type='text' id='glucides_modif' value='"+newglucides+"'>";
+        var newlipides = lipides.innerHTML;
+        lipides.innerHTML = "<input type='text' id='lipides_modif' value='"+newlipides+"'>";
+        var newsucres = sucres.innerHTML;
+        sucres.innerHTML = "<input type='text' id='sucres_modif' value='"+newsucres+"'>";
+        var newfibres = fibres.innerHTML;
+        fibres.innerHTML = "<input type='text' id='fibres_modif' value='"+newfibres+"'>";
+        var newsel = sel.innerHTML;
+        sel.innerHTML = "<input type='text' id='sel_modif' value='"+newsel+"'>";
+        var newvd = vd.innerHTML;
+        vd.innerHTML = "<input type='text' id='vd_modif' value='"+newvd+"'>";
+        var newvc = vc.innerHTML;
+        vc.innerHTML = "<input type='text' id='vc_modif' value='"+newvc+"'>";
+        var newve = ve.innerHTML;
+        ve.innerHTML = "<input type='text' id='ve_modif' value='"+newve+"'>";
+        }
+
+        function sauv(btn) {
+            var login = "<?php echo $currentlogin;?>";
+            var apports = $("#apports_modif").val();
+            var eau = $("#eau_modif").val();
+            var proteines = $("#proteines_modif").val();
+            var glucides = $("#glucides_modif").val();
+            var lipides = $("#lipides_modif").val();
+            var sucres = $("#sucres_modif").val();
+            var fibres = $("#fibres_modif").val();
+            var sel = $("#sel_modif").val();
+            var vd = $("#vd_modif").val();
+            var vc = $("#vc_modif").val();
+            var ve = $("#ve_modif").val();
+            var aliment = {apports,eau,proteines,glucides,lipides,sucres,fibres,sel,vd,vc,ve};
+            console.log(aliment);
+            $.ajax({
+                url :"../Back_end/sauvAliment.php",
+                method :"post",
+                dataType :"json",
+                data: aliment,
+            })
+            .done(function(){
+                for(k=2;k<=12;k++) {
+                    var row = btn.parentNode.parentNode;
+                    var enfant = row.childNodes;
+                    enfant[k].innerHTML = enfant[k].childNodes[0].value;
+                }
+            })
+            .fail(function(){
+                console.log("Erreur lors de la mise à jour des données");
+            })
+            
+        }
+</script>
+
 <body>
 <?php
     require_once("template_footer.php");
