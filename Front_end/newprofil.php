@@ -15,30 +15,29 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Créer un compte!</h1>
                         </div>
-                        <form class="user" id="new_form" action="../Back_end/profil.php" method="POST">
+                        <form method="POST" class="user" id="new_account" action="" onsubmit="onFormSubmit();">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user" name="nom"
-                                        placeholder="Nom">
+                                        id ="idnom" placeholder="Nom">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control form-control-user" name="prénom"
-                                        placeholder="Prénom">       
+                                        id="idprénom" placeholder="Prénom">       
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user"
-                                        name="login" placeholder="Login">
+                                        name="login" id="idlogin" placeholder="Login">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="number" class="form-control form-control-user"
-                                        name="age" placeholder="Age">
+                                        name="age" id="idage" placeholder="Age">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                    placeholder="Adresse mail">
+                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Adresse mail">
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -69,14 +68,40 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="src/jquery/jquery.min.js"></script>
+<script src="src/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="src/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+<script src="src/js/sb-admin-2.min.js"></script>
+
+<script>
+    function onFormSubmit() {
+        event.preventDefault();
+        let nom = $("#idnom").val();
+        let prénom = $("#idprénom").val();
+        let login = $("#idlogin").val();
+        let age = $("#idage").val();
+        let mail = $("#exampleInputEmail").val();
+        let mdp = $("#exampleInputPassword").val();
+        let confirm_mdp = $("#exampleRepeatPassword").val();
+
+        let donnees = {nom,prénom,login,age,mail,mdp,confirm_mdp};
+        $.post({
+                url : '../Back_end/addAccount.php',
+                dataType : 'json',
+                data : donnees
+        })
+        .done(function(){
+            console.log("Nouveau compte ajouté");
+        })
+        .fail(function(){
+            console.log("Echec de l'ajout");
+        })
+    }
+</script>
 
 </body>
 
