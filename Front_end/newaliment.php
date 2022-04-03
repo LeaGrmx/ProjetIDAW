@@ -231,7 +231,7 @@
                                 </div>
                                 <div class="card body">
                                     
-                                    <form method="post" id="addNewAliment" action="" onsubmit="onFormSubmit();">
+                                    <form method="post" id="addNewAliment" action="" onsubmit="onFormSubmit();" style="padding: 30px">
                                         <div class="form-group row">
                                         </div>
                                         <div class="form-group row">
@@ -341,60 +341,60 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center">
                                                 <label for="inputApports" class="nom" id="inputApports">Apports calorifiques(kcal/100g): </label>
                                                 <input type="text" class="form-control" id="inputAppCalo2">
                                             </div>
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center">
                                                 <label for="inputEau" class="eau" id="inputEau">Eau (en grammes)</label>
                                                 <input type="text" class="form-control" id="inputEau2">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center">
                                                 <label for="inputProteines" class="proteines" id="inputProteines">Protéines (*6,25; en grammes)
                                                 </label>
                                                 <input type="text" class="form-control" id="inputProteines2">
                                             </div>
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center">
                                                 <label for="inputGlucides" class="glucides" id="inputGlucides">Glucides (en grammes)
                                                 </label>
                                                 <input type="text" class="form-control" id="inputGlucides2">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center">
                                                 <label for="inputLipides" class="lipides" id="inputLipides">Lipides (en grammes)                                                   
                                                 </label>
                                                 <input type="text" class="form-control" id="inputLipides2">
                                             </div>
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center">
                                                 <label for="inputSucres" class="sucres" id="inputSucres">Sucres (en grammes)                                                   
                                                 </label>
                                                 <input type="text" class="form-control" id="inputSucres2">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center">
                                                 <label for="inputFibres" class="fibres" id="inputFibres">Fibres alimentaires (en grammes)
                                                 </label>
                                                 <input type="text" class="form-control" id="inputFibres2">
                                             </div>
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center">
                                                 <label for="inputSel" class="sel" id="inputSel">Sel (en grammes)</label>
                                                 <input type="text" class="form-control" id="inputSel2">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center">
                                                 <label for="inputVD" class="VD" id="inputVD">Vitamine D (en microgrammes)</label>
                                                 <input type="text" class="form-control" id="inputVD2">
                                             </div>
-                                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center">
                                                 <label for="inputVE" class="VE" id="inputVE">Vitamine E (en milligrammes)</label>
                                                 <input type="text" class="form-control" id="inputVE2">
                                             </div>
-                                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <div class="col-sm-4 mb-3 mb-sm-0" style="text-align: center">
                                                 <label for="inputVC" class="VC" id="inputVC">Vitamine C (en milligrammes)</label>
                                                 <input type="text" class="form-control" id="inputVC2">
                                             </div>
@@ -415,9 +415,9 @@
                                         <table class="table table-bordered" id="dataTable_aliments" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
-                                                    <th>Id du type</th>
-                                                    <th>Libellé du type</th>
-                                                    <th>Catégorie</th>
+                                                    <th style="text-align: center; vertical-align: middle">Id du type</th>
+                                                    <th style="text-align: center; vertical-align: middle">Libellé du type</th>
+                                                    <th style="text-align: center; vertical-align: middle">Catégorie</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

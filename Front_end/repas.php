@@ -190,7 +190,7 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-warning">Formulaire de saisie de repas</h6>
                                 </div>
-                                <div class="card body">
+                                <div class="card body" style="padding: 30px">
                                     <form method="post" id="addNewRepas" action="" onsubmit="onFormSubmit();">
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
@@ -250,13 +250,13 @@
                                         <table class="table table-bordered" id="dataTable_repas" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">Heure</th>
-                                                    <th scope="col">Repas</th>
-                                                    <th scope="col">Moment du repas</th>
-                                                    <th scope="col">Aliment</th>
-                                                    <th scope="col">Quantité</th>
-                                                    <th scope="col">Actions</th>
+                                                    <th scope="col" style="text-align: center; vertical-align: middle">Date</th>
+                                                    <th scope="col" style="text-align: center; vertical-align: middle">Heure</th>
+                                                    <th scope="col" style="text-align: center; vertical-align: middle">Repas</th>
+                                                    <th scope="col" style="text-align: center; vertical-align: middle">Moment du repas</th>
+                                                    <th scope="col" style="text-align: center; vertical-align: middle">Aliment</th>
+                                                    <th scope="col" style="text-align: center; vertical-align: middle">Quantité</th>
+                                                    <th scope="col" style="text-align: center; vertical-align: middle">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="AlimentsTableBody">
