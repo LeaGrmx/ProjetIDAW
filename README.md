@@ -8,3 +8,6 @@ Bonjour !
 
 - requête read :
 fichier profil.php dans Back_end + readJournal.php = nos essais de requête read afin d'afficher les élements de la base de données dans un tableau (datatable).
+
+- page aliment : 
+les requêtes modifier (sans sauvegarde) et delete sont fonctionnelles mais il n'y a pas possibilité de les tester à cause du non-affichage des données (requête read manquante...)
