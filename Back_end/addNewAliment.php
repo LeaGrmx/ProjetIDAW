@@ -18,7 +18,7 @@
         $ve = $_POST['ve'];
         $vc = $_POST['vc'];
 
-        $query[] = "INSERT INTO ALIMENTS (NOM_ALIMENT,ID_TYPE,APPORT_CALO(KCAL/100G),Eau (g/100g),Protéines (x6.25)(g/100g),Glucides (g/100g), Lipides (g/100g), Sucres (g/100g), Fibres alimentaires (g/100g), Sel (g/100g), Vitamine D (microg/100g), Vitamine E (mg/100g), Vitamine C (mg/100g)) VALUES ('$nom','$type_aliment','$apports','$eau','$proteines','$glucides','$lipides','$sucres','$fibres','$sel','$vd','$ve','$vc')";
+        $query[] = "INSERT INTO ALIMENTS (NOM_ALIMENT,ID_TYPE,APPORT_CALO,Eau,Proteines, Glucides, Lipides, Sucres, Fibres_Alimentaires, Sel, Vitamine_D, Vitamine_E, Vitamine_C) VALUES ('$nom','$type_aliment','$apports','$eau','$proteines', '$glucides','$lipides','$sucres','$fibres','$sel','$vd','$ve','$vc')";
 
         $result = true;
         $result = $result && mysqli_query($mysqli, $query[0]);

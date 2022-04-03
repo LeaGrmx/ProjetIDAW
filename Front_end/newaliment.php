@@ -42,6 +42,15 @@
 <?php
     require_once('template_header.php');
 ?>
+<head>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+    <script type="text/javascript" src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#dataTableNewAliments').DataTable();
+        } );
+    </script>
+</head>
 
 <body id="page-top">
 
@@ -245,92 +254,92 @@
                                                 <select class="form-control form-control-user" id="choix_type">
                                                     <option value="00">Sélectionner un type</option>
                                                     <optgroup label='Plats et Accompagnements'>
-                                                        <option value='Salades_composees'>Salades composées et crudités</option>
-                                                        <option value='soupes'>Soupes</option>
-                                                        <option value='plats_composés'>Plats composés</option>
-                                                        <option value='pizzas_tartes_crepes_salees'>Pizzas, tartes et crêpes salées</option>
-                                                        <option value='sandwichs'>Sandwichs</option>
-                                                        <option value='pates_riz_cereales'>Pâtes, riz et céréales</option>
-                                                        <option value='pains'>Pains</option>
-                                                        <option value='pommes_de_terre'>Pommes de terre et autres tubercules</option>
-                                                        <option value='legume'>Légumes</option>
-                                                        <option value='legumineuses'>Légumineuses</option>
-                                                        <option value='biscuits_aperitifs'>Biscuits apéritifs</option>   
+                                                        <option value='Salades_composees'>101</option>
+                                                        <option value='soupes'>102</option>
+                                                        <option value='plats_composés'>103</option>
+                                                        <option value='pizzas_tartes_crepes_salees'>104</option>
+                                                        <option value='sandwichs'>105</option>
+                                                        <option value='pates_riz_cereales'>301</option>
+                                                        <option value='legume'>201</option>
+                                                        <option value='pommes_de_terre'>202</option>
+                                                        <option value='legumineuses'>203</option>
+                                                        <option value='pains'>302</option>
+                                                        <option value='biscuits_aperitifs'>303</option>   
                                                     </optgroup>
                                                     <optgroup label='Fruits'>
-                                                        <option value='fruits'>Fruits</option>
-                                                        <option value='fruits_a_coque'>Fruits à coque et graines oléagineuses</option>
+                                                        <option value='fruits'>204</option>
+                                                        <option value='fruits_a_coque'>205</option>
                                                     </optgroup>  
                                                     <optgroup label='Viandes et Protéines'>
-                                                        <option value='viandes_cuites'>Viandes cuites</option>
-                                                        <option value='viandes_crues'>Viandes crues</option>          
-                                                        <option value='charcuterie'>Charcuteries</option>
-                                                        <option value='autres_viandes'>Autres produits à base de viande</option>
-                                                        <option value='oeufs'>Oeufs</option>
+                                                        <option value='viandes_cuites'>401</option>
+                                                        <option value='viandes_crues'>402</option>          
+                                                        <option value='charcuterie'>403</option>
+                                                        <option value='autres_viandes'>404</option>
+                                                        <option value='oeufs'>410</option>
                                                     </optgroup>
                                                     <optgroup label='Poissons'>
-                                                        <option value='poissons_cuits'>Poissons cuits</option>
-                                                        <option value='poissons_crus'>Poissons crus</option>
-                                                        <option value='autres_poissons'>Produits à base de poissons et produits de la mer</option>
+                                                        <option value='poissons_cuits'>405</option>
+                                                        <option value='poissons_crus'>406</option>
+                                                        <option value='autres_poissons'>409</option>
                                                     </optgroup>
                                                     <optgroup label='Produits Laitiers'>
-                                                        <option value='laits'>Laits</option>
-                                                        <option value='produits_laitiers_frais'>Produits laitiers frais</option>
-                                                        <option value='Fromages'>Fromages</option>
-                                                        <option value='cremes'>Crèmes</option>
+                                                        <option value='laits'>501</option>
+                                                        <option value='produits_laitiers_frais'>502</option>
+                                                        <option value='Fromages'>503</option>
+                                                        <option value='cremes'>504</option>
                                                     </optgroup>
                                                     <optgroup label='Boissons'>
-                                                        <option value='eaux'>Eaux</option>
-                                                        <option value='boissons_sans_alcool'>Boissons sans alcool</option>
-                                                        <option value='boissons_alcoolisees'>Boissons alcoolisées</option>
+                                                        <option value='eaux'>601</option>
+                                                        <option value='boissons_sans_alcool'>602</option>
+                                                        <option value='boissons_alcoolisees'>603</option>
                                                     </optgroup>
                                                         <optgroup label='Produits Sucrés'>
-                                                        <option value='sucres_miel'>Sucres et Miels</option>
-                                                        <option value='chocolats'>Chocolats et produits à base de chocolat</option>
-                                                        <option value='confiseries'>Confiseries non chocolatées</option>
-                                                        <option value='confitures'>Confitures</option>
-                                                        <option value='viennoiseries'>Viennoiseries</option>
-                                                        <option value='biscuits_sucres'>Biscuits sucrés</option>
-                                                        <option value='cereales_petit_dej'>Céréales de petit-déjeuner</option>
-                                                        <option value='barres_cerealieres'>Barres céréalières</option>
-                                                        <option value='gateaux'>Gâteaux et Pâtisseries</option>
-                                                        <option value='glaces'>Glaces</option>
-                                                        <option value='sorbets'>Sorbets</option>
-                                                        <option value='desserts_glaces'>Desserts Glacés</option>
+                                                        <option value='sucres_miel'>701</option>
+                                                        <option value='chocolats'>702</option>
+                                                        <option value='confiseries'>703</option>
+                                                        <option value='confitures'>704</option>
+                                                        <option value='viennoiseries'>705</option>
+                                                        <option value='biscuits_sucres'>706</option>
+                                                        <option value='cereales_petit_dej'>707</option>
+                                                        <option value='barres_cerealieres'>708</option>
+                                                        <option value='gateaux'>709</option>
+                                                        <option value='glaces'>801</option>
+                                                        <option value='sorbets'>802</option>
+                                                        <option value='desserts_glaces'>803</option>
                                                     </optgroup>
                                                     <optgroup label='Matières Grasses'>
-                                                        <option value='beurres'>Beurres</option>
-                                                        <option value='huiles_vegetales'>Huiles et graisses végétales</option>
-                                                        <option value='margarines'>Margarines</option>
-                                                        <option value='huiles_poisson'>Huiles de poisson</option>
-                                                        <option value='autres_matieres_grasses'>Autres matières grasses</option>
+                                                        <option value='beurres'>901</option>
+                                                        <option value='huiles_vegetales'>902</option>
+                                                        <option value='margarines'>903</option>
+                                                        <option value='huiles_poisson'>904</option>
+                                                        <option value='autres_matieres_grasses'>905</option>
                                                     </optgroup>
                                                         <optgroup label='Sauces et Condiments'>  
-                                                        <option value='sauces'>Sauces</option>
-                                                        <option value='condiments'>Condiments</option>
+                                                        <option value='sauces'>1001</option>
+                                                        <option value='condiments'>1002</option>
                                                     </optgroup>
                                                     <optgroup label='Aides Culinaires'>
-                                                        <option value='aides_culinaires'>Aides culinaires</option>
-                                                        <option value='sels'>Sels</option>
-                                                        <option value='epices'>Epices</option>
-                                                        <option value='herbes'>Herbes</option>
-                                                        <option value='algues'>Algues</option>
+                                                        <option value='aides_culinaires'>1003</option>
+                                                        <option value='sels'>1004</option>
+                                                        <option value='epices'>1005</option>
+                                                        <option value='herbes'>1006</option>
+                                                        <option value='algues'>1007</option>
                                                     </optgroup>
                                                     <optgroup label='Produits Infantiles'>
-                                                        <option value='laits_infantiles'>Laits et boissons infantiles</option>
-                                                        <option value='petits_pots'>Petits pots salés et plats infantiles</option>
-                                                        <option value='desserts_infantiles'>Desserts infantiles</option>
-                                                        <option value='cereales_infantiles'>Céréales et Biscuits infantiles</option>
+                                                        <option value='laits_infantiles'>1101</option>
+                                                        <option value='petits_pots'>1102</option>
+                                                        <option value='desserts_infantiles'>1103</option>
+                                                        <option value='cereales_infantiles'>1104</option>
                                                     </optgroup>
                                                     <optgroup label='Alimentation particulière'>
-                                                        <option value='substituts'>Substituts de produits carnés</option>
-                                                        <option value='denrees'>Denrées destinées à une alimentation particulière</option>
+                                                        <option value='substituts'>411</option>
+                                                        <option value='denrees'>1008</option>
                                                     </optgroup>
                                                     <optgroup label='Ingrédients Divers'>
-                                                        <option value='ingredients'>Ingrédients divers</option>
+                                                        <option value='ingredients'>1009</option>
                                                     </optgroup>
                                                     <optgroup label='Non Défini'>
-                                                        <option value='non_defini'>Non défini</option>
+                                                        <option value='non_defini'>1105</option>
                                                     </optgroup>
                                                 </select>
                                             </div>
@@ -352,7 +361,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0" style="text-align: center">
-                                                <label for="inputProteines" class="proteines" id="inputProteines">Protéines (*6,25; en grammes)
+                                                <label for="inputProteines" class="proteines" id="inputProteines">Protéines (x6.25 en grammes)
                                                 </label>
                                                 <input type="text" class="form-control" id="inputProteines2">
                                             </div>
@@ -412,7 +421,7 @@
                                 </div>
                                 <div class="card body">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable_aliments" width="100%" cellspacing="0">
+                                        <table class="table table-bordered" id="dataTableNewAliments" width="100%" cellspacing="0" style="padding: 30px">
                                             <thead>
                                                 <tr>
                                                     <th style="text-align: center; vertical-align: middle">Id du type</th>
@@ -422,302 +431,302 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>1</td>
+                                                    <td>101</td>
                                                     <td>Salades composées et crudités</td>
                                                     <td>Plats et accompagnements</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>2</td>
+                                                    <td>102</td>
                                                     <td>Soupes</td>
                                                     <td>Plats et accompagnements</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>3</td>
+                                                    <td>103</td>
                                                     <td>Plats composés</td>
                                                     <td>Plats et accompagnements</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>4</td>
+                                                    <td>104</td>
                                                     <td>Pizzas, tartes et crêpes salées</td>
                                                     <td>Plats et accompagnements</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>5</td>
+                                                    <td>105</td>
                                                     <td>Sandwichs</td>
                                                     <td>Plats et accompagnements</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>6</td>
+                                                    <td>301</td>
                                                     <td>Pâtes, riz et céréales</td>
                                                     <td>Plats et accompagnements</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>7</td>
+                                                    <td>302</td>
                                                     <td>Pains</td>
                                                     <td>Plats et accompagnements</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>8</td>
+                                                    <td>202</td>
                                                     <td>Pommes de terre et autres tubercules</td>
                                                     <td>Plats et accompagnements</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>9</td>
+                                                    <td>201</td>
                                                     <td>Légumes</td>
                                                     <td>Plats et accompagnements</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>10</td>
+                                                    <td>203</td>
                                                     <td>Légumineuses</td>
                                                     <td>Plats et accompagnements</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>11</td>
+                                                    <td>303</td>
                                                     <td>Biscuits apéritifs</td>
                                                     <td>Plats et accompagnements</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>12</td>
+                                                    <td>204</td>
                                                     <td>Fruits</td>
                                                     <td>Fruits</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>13</td>
+                                                    <td>205</td>
                                                     <td>Fruits à coque et graines oléagineuses</td>
                                                     <td>Fruits</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>14</td>
+                                                    <td>401</td>
                                                     <td>Viandes cuites</td>
                                                     <td>Viandes et Protéines</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>15</td>
+                                                    <td>402</td>
                                                     <td>Viandes crues</td>
                                                     <td>Viandes et Protéines</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>16</td>
+                                                    <td>403</td>
                                                     <td>Charcuteries</td>
                                                     <td>Viandes et Protéines</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>17</td>
+                                                    <td>404</td>
                                                     <td>Autres produits à base de viande</td>
                                                     <td>Viandes et Protéines</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>18</td>
+                                                    <td>410</td>
                                                     <td>Oeufs</td>
                                                     <td>Viandes et Protéines</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>19</td>
+                                                    <td>405</td>
                                                     <td>Poissons cuits</td>
                                                     <td>Poissons</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>20</td>
+                                                    <td>406</td>
                                                     <td>Poissons crus</td>
                                                     <td>Poissons</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>21</td>
+                                                    <td>409</td>
                                                     <td>Produits à base de poissons et produits de la mer</td>
                                                     <td>Poissons</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>22</td>
+                                                    <td>501</td>
                                                     <td>Laits</td>
                                                     <td>Produits Laitiers</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>23</td>
+                                                    <td>502</td>
                                                     <td>Produits laitiers frais</td>
                                                     <td>Produits Laitiers</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>24</td>
+                                                    <td>503</td>
                                                     <td>Fromages</td>
                                                     <td>Produits Laitiers</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>25</td>
+                                                    <td>504</td>
                                                     <td>Crèmes</td>
                                                     <td>Produits Laitiers</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>26</td>
+                                                    <td>601</td>
                                                     <td>Eaux</td>
                                                     <td>Boissons</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>27</td>
+                                                    <td>602</td>
                                                     <td>Boissons sans alcool</td>
                                                     <td>Boissons</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>28</td>
+                                                    <td>603</td>
                                                     <td>Boissons alcoolisées</td>
                                                     <td>Boissons</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>29</td>
+                                                    <td>701</td>
                                                     <td>Sucres et Miels</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>30</td>
+                                                    <td>702</td>
                                                     <td>Chocolats et produits à base de chocolat</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>31</td>
+                                                    <td>703</td>
                                                     <td>Confiseries non chocolatées</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>32</td>
+                                                    <td>704</td>
                                                     <td>Confitures</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>33</td>
+                                                    <td>705</td>
                                                     <td>Viennoiseries</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>34</td>
+                                                    <td>706</td>
                                                     <td>Biscuits sucrés</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>35</td>
+                                                    <td>707</td>
                                                     <td>Céréales de petit-déjeuner</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>36</td>
+                                                    <td>708</td>
                                                     <td>Barres céréalières</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>37</td>
+                                                    <td>709</td>
                                                     <td>Gâteaux et Pâtisseries</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>38</td>
+                                                    <td>801</td>
                                                     <td>Glaces</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>39</td>
+                                                    <td>802</td>
                                                     <td>Sorbets</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>40</td>
+                                                    <td>803</td>
                                                     <td>Desserts Glacés</td>
                                                     <td>Produits Sucrés</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>41</td>
+                                                    <td>901</td>
                                                     <td>Beurres</td>
                                                     <td>Matières Grassses</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>42</td>
+                                                    <td>902</td>
                                                     <td>Huiles et graisses végétales</td>
                                                     <td>Matières Grassses</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>43</td>
+                                                    <td>903</td>
                                                     <td>Margarines</td>
                                                     <td>Matières Grassses</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>44</td>
+                                                    <td>904</td>
                                                     <td>Huiles de poisson</td>
                                                     <td>Matières Grassses</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>45</td>
+                                                    <td>905</td>
                                                     <td>Autres matières grasses</td>
                                                     <td>Matières Grassses</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>46</td>
+                                                    <td>1001</td>
                                                     <td>Sauces</td>
                                                     <td>Sauces et Condiments</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>47</td>
+                                                    <td>1002</td>
                                                     <td>Condiments</td>
                                                     <td>Sauces et Condiments</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>48</td>
+                                                    <td>1003</td>
                                                     <td>Aides culinaires</td>
                                                     <td>Aides Culinaires</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>49</td>
+                                                    <td>1004</td>
                                                     <td>Sels</td>
                                                     <td>Aides Culinaires</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>50</td>
+                                                    <td>1005</td>
                                                     <td>Epices</td>
                                                     <td>Aides Culinaires</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>51</td>
+                                                    <td>1006</td>
                                                     <td>Herbes</td>
                                                     <td>Aides Culinaires</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>52</td>
+                                                    <td>1007</td>
                                                     <td>Algues</td>
                                                     <td>Aides Culinaires</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>53</td>
+                                                    <td>1101</td>
                                                     <td>Laits et boissons infantiles</td>
                                                     <td>Produits Infantiles</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>54</td>
+                                                    <td>1102</td>
                                                     <td>Petits pots salés et plats infantiles</td>
                                                     <td>Produits Infantiles</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>55</td>
+                                                    <td>1103</td>
                                                     <td>Desserts infantiles</td>
                                                     <td>Produits Infantiles</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>56</td>
+                                                    <td>1104</td>
                                                     <td>Céréales et Biscuits infantiles</td>
                                                     <td>Produits Infantiles</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>57</td>
+                                                    <td>411</td>
                                                     <td>Substituts de produits carnés</td>
                                                     <td>Alimentation Particulière</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>58</td>
+                                                    <td>1008</td>
                                                     <td>Denrées destinées à une alimentation particulière</td>
                                                     <td>Alimentation Particulière</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>59</td>
+                                                    <td>1009</td>
                                                     <td>Ingrédients divers</td>
                                                     <td>Ingrédients Divers</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>60</td>
+                                                    <td>1105</td>
                                                     <td>Non défini</td>
                                                     <td>Non Défini</td>
                                                 </tr>
@@ -756,7 +765,7 @@
         let nom = $("#inputNom2").val();
         let apports = $("#inputAppCalo2").val();
         let eau = $("#inputEau2").val();
-        let proteines = $("#inputProteine2").val();
+        let proteines = $("#inputProteines2").val();
         let glucides = $("#inputGlucides2").val();
         let lipides = $("#inputLipides2").val();
         let sucres = $("#inputSucres2").val();
