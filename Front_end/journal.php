@@ -3,6 +3,22 @@
     require_once("template_menu.php");
     $currentlogin = $_SESSION['login'];
 ?>
+<head>
+    <!-- Custom fonts for this template -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="src/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+    <script type="text/javascript" src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#table_repas').DataTable();
+        } );
+    </script>
+</head>
 
 <body id="page-top">
 
@@ -181,38 +197,36 @@
                             </div>
                         </div>  
                     </div>
+
+                    <!-- Content Row :datatable-->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-success">Vos repas</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="table_repas" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Heure</th>
+                                            <th scope="col">Repas</th>
+                                            <th scope="col">Place dans le repas</th>
+                                            <th scope="col">Aliment</th>
+                                            <th scope="col">Quantité</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="AlimentsTableBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
-</body>
-<!-- Ancien code -->
-    
-<br><br><br><br><br>
-    <table id="table_repas">
-        <thead>
-            <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Heure</th>
-                <th scope="col">Repas</th>
-<!--                 <th scope="col">Entrée 1</th>
-                <th scope="col">Entrée 2</th>
-                <th scope="col">Plat de résistance</th>
-                <th scope="col">Accompagnement 1</th>
-                <th scope="col">Accompagnement 2</th>
-                <th scope="col">Laitage</th>
-                <th scope="col">Fruit 1</th>
-                <th scope="col">Fruit 2</th> -->
-                <th scope="col">Place dans le repas</th>
-                <th scope="col">Aliment</th>
-                <th scope="col">Quantité</th>
-            </tr>
-        </thead>
-        <tbody id="AlimentsTableBody">
-        </tbody>
-    </table>
-
     <script>
         function onFormSubmit() {
             event.preventDefault();
@@ -242,7 +256,7 @@
             let aliment = $("#inputAliment").val(); 
             let qt = $("#qt").val();
             let login = "<?php echo $currentlogin;?>";
-          /*   let repas = {login, date, heure, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2, qt1, qt2, qt3, qt4, qt5, qt6, qt7, qt8}; */
+            /*   let repas = {login, date, heure, type_repas, entree1,entree2,plat,accompagnement1,accompagnement2,laitage,fruit1,fruit2, qt1, qt2, qt3, qt4, qt5, qt6, qt7, qt8}; */
             let repas = {login, date, heure, type_repas, place_repas, aliment, qt};  
             $.post({
                     url : '../Back_end/addJournal.php',
@@ -299,7 +313,7 @@
             var place_repas = repas[3];
             var aliment = repas[4];
             var qt = repas [5];
-/*             var entree1 = repas[3];
+    /*             var entree1 = repas[3];
             var entree2 = repas[4];
             var plat = repas[5];
             var acc1 = repas[6];
@@ -345,12 +359,12 @@
         }
 
         function sauv(btn) {
-          /*   var row = btn.parentNode.parentNode;
+            /*   var row = btn.parentNode.parentNode;
             console.log(row);
             var enfant = row.childNodes;
             console.log(enfant);
             var type_repas = enfant[2]; */
- /*            var entree1 = enfant[3];
+    /*            var entree1 = enfant[3];
             var entree2 = enfant[4];    
             var plat = enfant[5];
             var acc1 = enfant[6];

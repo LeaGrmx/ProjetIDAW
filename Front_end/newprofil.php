@@ -13,7 +13,7 @@
                 <div class="col-lg-12">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Créer un compte!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Créez un compte!</h1>
                         </div>
                         <form method="POST" class="user" id="new_account" action="" onsubmit="onFormSubmit();">
                             <div class="form-group row">
@@ -29,24 +29,24 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user"
-                                        name="login" id="idlogin" placeholder="Login">
+                                        name="login" id="idlogin" placeholder="Login" required> 
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="number" class="form-control form-control-user"
-                                        name="age" id="idage" placeholder="Age">
+                                        name="age" id="idage" placeholder="Age" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Adresse mail">
+                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Adresse mail" required>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="password" class="form-control form-control-user"
-                                        name="password" id="exampleInputPassword" placeholder="Mot de passe">
+                                        name="password" id="exampleInputPassword" placeholder="Mot de passe" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="password" class="form-control form-control-user"
-                                        name="repeat_password" id="exampleRepeatPassword" placeholder="Confirmez le mot de passe">
+                                        name="repeat_password" id="exampleRepeatPassword" placeholder="Confirmez le mot de passe" required>
                                 </div>
                             </div>
                             <input class="btn btn-primary btn-user btn-block" type="submit" value="Valider" />
@@ -99,6 +99,7 @@
         })
         .fail(function(){
             console.log("Echec de l'ajout");
+            alert('Mot de passe différents!');
         })
     }
 </script>
