@@ -3,6 +3,24 @@
     require_once("template_menu.php");
 ?>
 
+<head>
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="/src/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+    <script type="text/javascript" src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#dataProfil').DataTable();
+        } );
+    </script>
+</head>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -164,6 +182,29 @@
                                 <div class="card-body">
                                     <p>Pour le modifier, vous pouvez <a
                                             target="_blank" rel="nofollow" href="">cliquer ici</a>!</p>
+                                </div>
+                            </div>
+                    </div>
+                    <!-- Content Row -->
+                    <div class="row">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-info">Vos données</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" action="../Back_end/profil.php" id="dataProfil" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Login</th>
+                                                    <th>Nom</th>
+                                                    <th>Prénom</th>
+                                                    <th>Age</th>
+                                                    <th>Mail</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                     </div>
