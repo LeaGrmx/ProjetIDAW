@@ -2,7 +2,7 @@
 // on simule une base de données
 $servername = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'root';
 
 //On établit la connexion
 $mysqli = mysqli_connect($servername, $username, $password, 'PROJET_IDAW');

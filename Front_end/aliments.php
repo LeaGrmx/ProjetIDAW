@@ -10,7 +10,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/src/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
     <script type="text/javascript" src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
